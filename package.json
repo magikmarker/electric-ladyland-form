@@ -1,0 +1,30 @@
+{
+  "name": "electric-ladyland-form",
+  "version": "0.0.1",
+  "description": "Remix.run form library because form libraries are easy and there isn't enough of them.",
+  "main": "dist/index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magikmarker/electric-ladyland-form.git"
+  },
+  "keywords": [
+    "\"Remix",
+    "Run\"",
+    "\"React\"",
+    "\"Remix",
+    "Form",
+    "Library\"",
+    "\"Blazingly",
+    "Fast\""
+  ],
+  "author": "magikmarker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/magikmarker/electric-ladyland-form/issues"
+  },
+  "homepage": "https://github.com/magikmarker/electric-ladyland-form#readme"
+}
