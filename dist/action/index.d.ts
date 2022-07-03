@@ -9,6 +9,8 @@ export declare function formActionFunction({ formType, request, formBlueprint, h
         commitSession: any;
         getSession: any;
         destroySession: any;
+        redirect: any;
+        json: any;
     };
 } | {
     formType: "multipart";
@@ -20,6 +22,8 @@ export declare function formActionFunction({ formType, request, formBlueprint, h
         commitSession: any;
         getSession: any;
         destroySession: any;
+        redirect: any;
+        json: any;
     };
 }): Promise<any>;
 //# sourceMappingURL=index.d.ts.map

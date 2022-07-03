@@ -7,6 +7,7 @@ export declare function formLoaderFunction({ basicOrMultipart, request, formBlue
         commitSession: any;
         getSession: any;
         destroySession: any;
+        json: any;
     };
 } | {
     basicOrMultipart: "basic";
@@ -16,6 +17,7 @@ export declare function formLoaderFunction({ basicOrMultipart, request, formBlue
         commitSession: any;
         getSession: any;
         destroySession: any;
+        json: any;
     };
 }): Promise<any>;
 //# sourceMappingURL=index.d.ts.map

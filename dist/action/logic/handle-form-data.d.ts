@@ -1,9 +1,13 @@
-export declare function handleFormData({ handleDataFn, context, successRedirectPath, session, commitSession, request, }: {
+export declare function handleFormData({ handleDataFn, context, successRedirectPath, session, request, formUtilitiesFromRemixApp, }: {
     handleDataFn: any;
     context: any;
     successRedirectPath: string;
     session: any;
-    commitSession: any;
     request: Request;
-}): Promise<Response>;
+    formUtilitiesFromRemixApp: {
+        redirect: any;
+        json: any;
+        commitSession: any;
+    };
+}): Promise<any>;
 //# sourceMappingURL=handle-form-data.d.ts.map

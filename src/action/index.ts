@@ -28,6 +28,7 @@ export async function formActionFunction({
         getSession: any;
         destroySession: any;
         redirect: any;
+        json: any;
       };
     }
   | {
@@ -41,6 +42,7 @@ export async function formActionFunction({
         getSession: any;
         destroySession: any;
         redirect: any;
+        json: any;
       };
     }): Promise<any> {
   // Get the form utilities by spreading the form utilities object
@@ -192,9 +194,9 @@ export async function formActionFunction({
       return handleFormData({
         request,
         handleDataFn,
-        commitSession,
         context,
         successRedirectPath,
+        formUtilitiesFromRemixApp,
         session,
       });
     }
@@ -216,9 +218,9 @@ export async function formActionFunction({
 
       return handleFormData({
         handleDataFn,
-        commitSession,
         context,
         successRedirectPath,
+        formUtilitiesFromRemixApp,
         session,
         request,
       });
