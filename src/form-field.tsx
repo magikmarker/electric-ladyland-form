@@ -5,10 +5,6 @@ import { Radio } from "./components/radio";
 import { CheckboxGroup } from "./components/checkbox-group";
 import { ExpandableList } from "./components/expandable-list";
 import { StatefulRadio } from "./components/stateful-radio";
-// @ts-expect-error Way of the road bubs
-import styles from "./styles.css";
-
-FormField.styles = styles;
 
 function FormField({
   field,
@@ -73,4 +69,4 @@ function FormField({
   return null;
 }
 
-export { FormField, styles as formFieldStyles };
+export { FormField };

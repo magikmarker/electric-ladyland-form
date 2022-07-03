@@ -39,7 +39,6 @@ export function ExpandableList({
   listItemStructure.forEach((field) => {
     // @ts-expect-error lolz typescript
     if (field.showOnMobileTable) {
-      // @ts-expect-error lolz typescript
       fieldsToShowInTable[field.name] = field;
     }
   });
@@ -155,7 +154,6 @@ export function ExpandableList({
                         data-test={`edit-${index}`}
                         onClick={(e) => {
                           e.preventDefault();
-                          // @ts-expect-error lolz typescript
                           setSelectedIndex(index);
                           setSelectedAction("edit-item");
 
@@ -175,7 +173,6 @@ export function ExpandableList({
                         data-test={`delete-${index}`}
                         onClick={(e) => {
                           e.preventDefault();
-                          // @ts-expect-error lolz typescript
                           setSelectedIndex(index);
                           setSelectedAction("delete-item");
 

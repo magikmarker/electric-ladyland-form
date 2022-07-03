@@ -1,4 +1,4 @@
-import { FormFieldInput, MultiStepForm } from "../../types";
+import type { FormFieldInput, MultiStepForm } from "../../types";
 export declare function checkContextForErrors({ context, formType, formBlueprint, }: {
     formBlueprint: FormFieldInput[];
     formType: "basic";

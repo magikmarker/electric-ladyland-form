@@ -1,4 +1,4 @@
-import type { MultiStepForm } from "electric-ladyland/types";
+import type { MultiStepForm } from "./types";
 export declare function getFormStage({ context, formBlueprint, }: {
     context: any;
     formBlueprint: MultiStepForm;

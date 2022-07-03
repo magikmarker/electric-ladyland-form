@@ -1,4 +1,4 @@
-import type { FormFieldInput, MultiStepForm } from "../../types";
+import type { FormFieldInput, MultiStepForm } from "../types";
 
 // Check to see that the context applies to the current
 // form structure. If it doesn't, return false

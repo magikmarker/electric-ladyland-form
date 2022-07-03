@@ -1,5 +1,4 @@
 import type { FormFieldInput, MultiStepForm } from "../types";
-import { getSession, commitSession, destroySession } from "../session.server";
 import { json } from "@remix-run/node";
 import {
   checkForRelevantContext,
@@ -11,17 +10,32 @@ export async function formLoaderFunction({
   basicOrMultipart,
   request,
   formBlueprint,
+  formUtilitiesFromRemixApp,
 }:
   | {
       basicOrMultipart: "multipart";
       request: Request;
       formBlueprint: MultiStepForm;
+      formUtilitiesFromRemixApp: {
+        commitSession: any;
+        getSession: any;
+        destroySession: any;
+      };
     }
   | {
       basicOrMultipart: "basic";
       request: Request;
       formBlueprint: FormFieldInput[];
+      formUtilitiesFromRemixApp: {
+        commitSession: any;
+        getSession: any;
+        destroySession: any;
+      };
     }): Promise<any> {
+  // Get the form utilities by spreading the form utilities object
+  const { commitSession, getSession, destroySession } =
+    formUtilitiesFromRemixApp;
+
   const session = await getSession(request.headers.get("Cookie"));
 
   let context = session.get("context");

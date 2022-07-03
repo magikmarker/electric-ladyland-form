@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import type { FormFieldInput } from "./types";
+// @ts-expect-error sometimes you walk the line, sometimes it walks you
+import React from "react";
 import { Form } from "@remix-run/react";
 import { FormField } from "./form-field";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";

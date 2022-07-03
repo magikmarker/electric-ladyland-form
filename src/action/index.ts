@@ -7,7 +7,6 @@ import {
   validateFormFieldValue,
 } from "./logic";
 import type { FormFieldInput, MultiStepForm } from "../types";
-import { commitSession, getSession, destroySession } from "../session.server";
 import { redirect } from "@remix-run/node";
 import { getFormStage } from "../shared";
 
@@ -17,6 +16,7 @@ export async function formActionFunction({
   formBlueprint,
   handleDataFn,
   successRedirectPath,
+  formUtilitiesFromRemixApp,
 }:
   | {
       formType: "basic";
@@ -24,6 +24,11 @@ export async function formActionFunction({
       formBlueprint: FormFieldInput[];
       handleDataFn: any;
       successRedirectPath: string;
+      formUtilitiesFromRemixApp: {
+        commitSession: any;
+        getSession: any;
+        destroySession: any;
+      };
     }
   | {
       formType: "multipart";
@@ -31,7 +36,15 @@ export async function formActionFunction({
       formBlueprint: MultiStepForm;
       handleDataFn: any;
       successRedirectPath: string;
+      formUtilitiesFromRemixApp: {
+        commitSession: any;
+        getSession: any;
+        destroySession: any;
+      };
     }): Promise<any> {
+  // Get the form utilities by spreading the form utilities object
+  const { commitSession, getSession, destroySession } =
+    formUtilitiesFromRemixApp;
   // Get the current session
   const session = await getSession(request.headers.get("Cookie"));
 
@@ -77,6 +90,7 @@ export async function formActionFunction({
       formBlueprint,
       context,
       session,
+      commitSession,
       pathname,
       body,
     });

@@ -1,5 +1,4 @@
 import { redirect } from "@remix-run/node";
-import { commitSession } from "../../session.server";
 
 export async function handleListItemFormStructureOp({
   operationType,
@@ -8,6 +7,7 @@ export async function handleListItemFormStructureOp({
   session,
   pathname,
   body,
+  commitSession,
 }: {
   operationType: any;
   formBlueprint: any;
@@ -15,6 +15,7 @@ export async function handleListItemFormStructureOp({
   session: any;
   pathname: string;
   body: any;
+  commitSession: any;
 }): Promise<any> {
   let expandableList = formBlueprint[context?.currentStep]?.fields.find(
     (item: any) => {

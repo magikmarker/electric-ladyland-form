@@ -1,4 +1,4 @@
-import type { FormFieldInput, MultiStepForm } from "../../types";
+import type { FormFieldInput, MultiStepForm } from "../types";
 declare function seedContextWithInitialValues({ basicOrMultipart, formBlueprint, }: {
     basicOrMultipart: "multipart";
     formBlueprint: MultiStepForm;

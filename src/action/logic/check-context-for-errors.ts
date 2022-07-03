@@ -2,7 +2,7 @@
 // In basic, we want to check all of the context entries
 // In multipart, we only want to check the context items
 
-import { FormFieldInput, MultiStepForm } from "../../types";
+import type { FormFieldInput, MultiStepForm } from "../../types";
 
 // for the current step
 export function checkContextForErrors({

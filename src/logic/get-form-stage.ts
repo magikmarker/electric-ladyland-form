@@ -1,4 +1,4 @@
-import type { MultiStepForm } from "../../types";
+import type { MultiStepForm } from "../types";
 
 function getFormStage({
   context,

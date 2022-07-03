@@ -1,4 +1,4 @@
-import type { MultiStepForm } from "../../types";
+import type { MultiStepForm } from "../types";
 declare function getFormStage({ context, formBlueprint, }: {
     context: any;
     formBlueprint: MultiStepForm;
