@@ -52,6 +52,7 @@
   "homepage": "https://github.com/magikmarker/electric-ladyland-form#readme",
   "dependencies": {
     "@reach/dialog": "^0.17.0",
+    "@remix-run/node": "^1.6.3",
     "react": "17",
     "react-dom": "17",
     "react-icons": "^4.4.0"
