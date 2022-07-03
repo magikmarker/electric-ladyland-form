@@ -5,6 +5,7 @@ const chokidar = require("chokidar");
 (async () => {
   const builder = await build({
     bundle: true,
+    platform: "node",
     // Defines env variables for bundled JavaScript; here `process.env.NODE_ENV`
     // is propagated with a fallback.
     define: {
@@ -17,7 +18,9 @@ const chokidar = require("chokidar");
     incremental: true,
     // Removes whitespace, etc. depending on `NODE_ENV=...`.
     minify: process.env.NODE_ENV === "production",
-    outfile: "dist/index.js",
+    outfile: "dist/index.cjs.js",
+    format: "cjs",
+    target: "node16",
     sourcemap: true,
   });
   // `chokidar` watcher source changes.

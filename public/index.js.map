@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../src/index.ts"],
-  "sourcesContent": ["// Export hello world function that takes a string as argument and returns a string\nexport function hello(name: string): string {\n  return `Hello ${name}`;\n}\n"],
-  "mappings": ";;;AACO,iBAAe,MAAsB;AAC1C,WAAO,SAAS;AAAA,EAClB;",
-  "names": []
-}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/component.tsx", "../src/index.ts"],
+  "sourcesContent": ["// Create a test react component\nimport React from \"react\";\n\nexport function TestComponent({ children }: { children?: React.ReactNode }) {\n  return <div>{children}</div>;\n}\n", "// Export hello world function that takes a string as argument and returns a string\nexport function hello(name: string): string {\n  console.log(\"I am not your rolling wheels\");\n  return `Hello ${name}`;\n}\n\nexport function helloRandall(name: string): string {\n  console.log(\"I am not your rolling wheels\");\n  return `Hello ${name}`;\n}\n\nexport { TestComponent } from \"./component\";\n"],
+  "mappings": "AACA,qBAEO,WAAuB,CAAE,YAA4C,CAC1E,MAAO,iBAAC,WAAK,CAAS,CACxB,CCJO,WAAe,EAAsB,CAC1C,eAAQ,IAAI,8BAA8B,EACnC,SAAS,GAClB,CAEO,WAAsB,EAAsB,CACjD,eAAQ,IAAI,8BAA8B,EACnC,SAAS,GAClB",
+  "names": []
+}
