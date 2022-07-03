@@ -30,8 +30,8 @@
   --input-field-bottom-margin: 32px;
   --input-field-bottom-margin-mm: 42px;
   --input-background: white;
-  --input-label-font: var(--font-display);
-  --input-body-font: var(--font-body);
+  --input-label-font: var(--font-display), sans-serif;
+  --input-body-font: var(--font-body), sans-serif;
   --input-border-radius: 4px;
   --input-font-size: 16px;
   --input-font-size-mm: 1.05em;
@@ -111,9 +111,11 @@
     25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.34);
 
   /* Fonts */
-  --font-display: "display", -apple-system, "Segoe UI", Helvetica Neue,
-    Helvetica, Roboto, Arial, sans-serif, system-ui, "Apple Color Emoji",
-    "Segoe UI Emoji";
+  --font-display: "display", sans-serif, -apple-system, "Segoe UI",
+    Helvetica Neue, Helvetica, Roboto, Arial, sans-serif, system-ui,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  --font-body: "body", -apple-system, "Segoe UI", Helvetica Neue, Helvetica,
+    Roboto, Arial, sans-serif, system-ui, "Apple Color Emoji", "Segoe UI Emoji";
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -158,6 +160,7 @@
 }
 
 .el-form-wrapper {
+  font-family: var(--input-body-font);
   position: relative;
   padding: 32px 16px;
   width: inherit;
@@ -347,6 +350,7 @@
 }
 
 [data-reach-dialog-content] {
+  font-family: var(--input-body-font);
   width: calc(98vw - (2 * var(--space-mb)));
   margin: 10vh auto;
   background: white;
