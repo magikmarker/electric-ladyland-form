@@ -1,23 +1,26 @@
 // Takes in the data (context), success redirect path, and
 
-import { json, redirect } from "@remix-run/node";
-
 // session and commitSession function
 export async function handleFormData({
   handleDataFn,
   context,
   successRedirectPath,
   session,
-  commitSession,
   request,
+  formUtilitiesFromRemixApp,
 }: {
   handleDataFn: any;
   context: any;
   successRedirectPath: string;
   session: any;
-  commitSession: any;
   request: Request;
+  formUtilitiesFromRemixApp: {
+    redirect: any;
+    json: any;
+    commitSession: any;
+  };
 }) {
+  const { commitSession, redirect, json } = formUtilitiesFromRemixApp;
   // handle data - the data function should return a tuple
   // the first item in the tuple will be a boolean to indicate
   // whether the operation succeeded or failed

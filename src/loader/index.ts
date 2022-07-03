@@ -1,5 +1,4 @@
 import type { FormFieldInput, MultiStepForm } from "../types";
-import { json } from "@remix-run/node";
 import {
   checkForRelevantContext,
   getFormStage,
@@ -20,6 +19,7 @@ export async function formLoaderFunction({
         commitSession: any;
         getSession: any;
         destroySession: any;
+        json: any;
       };
     }
   | {
@@ -30,10 +30,11 @@ export async function formLoaderFunction({
         commitSession: any;
         getSession: any;
         destroySession: any;
+        json: any;
       };
     }): Promise<any> {
   // Get the form utilities by spreading the form utilities object
-  const { commitSession, getSession, destroySession } =
+  const { commitSession, getSession, destroySession, json } =
     formUtilitiesFromRemixApp;
 
   const session = await getSession(request.headers.get("Cookie"));

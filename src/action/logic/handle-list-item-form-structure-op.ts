@@ -1,11 +1,10 @@
-import { redirect } from "@remix-run/node";
-
 export async function handleListItemFormStructureOp({
   operationType,
   formBlueprint,
   context,
   session,
   pathname,
+  redirect,
   body,
   commitSession,
 }: {
@@ -14,6 +13,7 @@ export async function handleListItemFormStructureOp({
   context: any;
   session: any;
   pathname: string;
+  redirect: any;
   body: any;
   commitSession: any;
 }): Promise<any> {

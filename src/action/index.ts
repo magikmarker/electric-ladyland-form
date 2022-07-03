@@ -7,7 +7,6 @@ import {
   validateFormFieldValue,
 } from "./logic";
 import type { FormFieldInput, MultiStepForm } from "../types";
-import { redirect } from "@remix-run/node";
 import { getFormStage } from "../shared";
 
 export async function formActionFunction({
@@ -28,6 +27,7 @@ export async function formActionFunction({
         commitSession: any;
         getSession: any;
         destroySession: any;
+        redirect: any;
       };
     }
   | {
@@ -40,10 +40,11 @@ export async function formActionFunction({
         commitSession: any;
         getSession: any;
         destroySession: any;
+        redirect: any;
       };
     }): Promise<any> {
   // Get the form utilities by spreading the form utilities object
-  const { commitSession, getSession, destroySession } =
+  const { commitSession, getSession, destroySession, redirect } =
     formUtilitiesFromRemixApp;
   // Get the current session
   const session = await getSession(request.headers.get("Cookie"));
@@ -93,6 +94,7 @@ export async function formActionFunction({
       commitSession,
       pathname,
       body,
+      redirect,
     });
   }
 
