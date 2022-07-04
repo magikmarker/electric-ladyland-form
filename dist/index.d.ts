@@ -1,5 +1,5 @@
 export { formActionFunction } from "./action";
 export { formLoaderFunction } from "./loader";
 export { ElectricLadylandForm } from "./form-wrapper";
-export type { FormFieldInput, FormBlueprint } from "./types";
+export type { FormFieldInput, FormStage, FormBlueprint } from "./types";
 //# sourceMappingURL=index.d.ts.map

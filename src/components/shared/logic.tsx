@@ -1,6 +1,6 @@
 import type { FormEvent } from "react";
 import { useState } from "react";
-import { convertSingleQuotes } from "../../shared";
+import { convertSingleQuotes } from "../../shared-logic";
 
 export function createFieldLabel(fieldName: string) {
   let words = fieldName.split("-");

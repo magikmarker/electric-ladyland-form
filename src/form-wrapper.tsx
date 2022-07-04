@@ -19,7 +19,7 @@ export function ElectricLadylandForm({
   submitText?: string;
   reloadDocument?: boolean;
 }) {
-  //   console.log({ formStructure });
+  console.log({ formStructure });
 
   return (
     <div className="el-form-wrapper">
@@ -68,7 +68,8 @@ export function ElectricLadylandForm({
           )}
         </div>
       </FormWrapper>
-      {(context.formStage === "middle" || context.formStage === "end") && (
+      {(context.formStage === "middle" || context.formStage === "end") &&
+      context.currentStep > 0 ? (
         <Form method="post">
           <FormButton
             dataTest="back"
@@ -83,7 +84,7 @@ export function ElectricLadylandForm({
             {context.backButtonText}
           </FormButton>
         </Form>
-      )}
+      ) : null}
     </div>
   );
 }

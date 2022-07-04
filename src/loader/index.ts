@@ -1,10 +1,7 @@
 import type { FormBlueprint } from "../types";
-import {
-  checkForRelevantContext,
-  getFormStage,
-  seedContextWithInitialValues,
-} from "./logic";
+import { checkForRelevantContext, seedContextWithInitialValues } from "./logic";
 
+import { getFormStage } from "../shared-logic";
 export async function formLoaderFunction({
   request,
   formBlueprint,
@@ -22,11 +19,6 @@ export async function formLoaderFunction({
   // Get the form utilities by spreading the form utilities object
   const { commitSession, getSession, destroySession, json } =
     formUtilitiesFromRemixApp;
-  let basicOrMultipart: "basic" | "multipart" = "basic";
-
-  formBlueprint.length > 1
-    ? (basicOrMultipart = "multipart")
-    : (basicOrMultipart = "basic");
 
   const session = await getSession(request.headers.get("Cookie"));
 
@@ -57,30 +49,30 @@ export async function formLoaderFunction({
     context.currentStep = 0;
   }
 
-  if (basicOrMultipart === "multipart") {
-    let formStage = getFormStage({ context, formBlueprint });
+  let formStage = getFormStage({ context, formBlueprint });
 
-    // console.log({ formStage, context });
+  // console.log({ formStage, context });
 
-    if (context.currentStep > 0 && Object.keys(context).length < 1) {
-      //      console.log("You shouldn't be here");
+  // This is mostly for multi-step forms, if we don't have any context
+  // values but we are past step one, we know we have some kind of mismatch
+  if (context.currentStep > 0 && Object.keys(context).length < 1) {
+    //      console.log("You shouldn't be here");
 
-      return json(
-        {},
-        {
-          headers: {
-            "Set-Cookie": await destroySession(session),
-          },
-        }
-      );
-    }
-
-    context.formStage = formStage;
-    // @ts-ignore
-    context.nextButtonText = formBlueprint[context.currentStep]?.nextButtonText;
-    // @ts-ignore
-    context.backButtonText = formBlueprint[context.currentStep]?.backButtonText;
+    return json(
+      {},
+      {
+        headers: {
+          "Set-Cookie": await destroySession(session),
+        },
+      }
+    );
   }
+
+  context.formStage = formStage;
+  // @ts-ignore
+  context.nextButtonText = formBlueprint[context.currentStep]?.nextButtonText;
+  // @ts-ignore
+  context.backButtonText = formBlueprint[context.currentStep]?.backButtonText;
 
   session.set("context", context);
 

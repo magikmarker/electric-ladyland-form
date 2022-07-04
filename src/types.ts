@@ -94,8 +94,6 @@ export type FormFieldInput =
   | CheckboxGroupBlueprint
   | ExpandableListBlueprint;
 
-// export type FormBlueprint = FormFieldInput[];
-
 export type FormStage = {
   stageTitle?: string;
   fields: FormFieldInput[];

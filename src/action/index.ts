@@ -7,7 +7,7 @@ import {
   validateFormFieldValue,
 } from "./logic";
 import type { FormBlueprint } from "../types";
-import { getFormStage } from "../shared";
+import { getFormStage } from "../shared-logic";
 
 export async function formActionFunction({
   request,
@@ -150,6 +150,10 @@ export async function formActionFunction({
   // console.log({ errorsInContext, context });
 
   if (!errorsInContext) {
+    // Get the current form stage, if it is only a single step form
+    // the formStage will be set to end to show a submit button
+    const formStage = getFormStage({ formBlueprint, context });
+    context.formStage = formStage;
     // If there are no errors in the context we have two routes
     // to take
 
@@ -176,8 +180,6 @@ export async function formActionFunction({
     // (Next, Back, Submit)
     // * If we are at the end, we want to handle the data,
     // otherwise we want to show the next step of the form
-    const formStage = getFormStage({ formBlueprint, context });
-    context.formStage = formStage;
 
     // Handle data
     if (formStage === "end" && submitType === "submit") {
@@ -192,9 +194,6 @@ export async function formActionFunction({
         request,
       });
     } else {
-      //      console.log("pow");
-
-      // console.log("whats up dawg?");
       // Still at the beginning or middle of the form
       // All the inputs were correct, we want to go to
       // the next stage of the form
@@ -210,8 +209,6 @@ export async function formActionFunction({
       });
     }
   }
-
-  //  console.log("you're here?");
 
   return redirect(pathname, {
     headers: {

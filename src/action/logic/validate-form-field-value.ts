@@ -1,4 +1,4 @@
-import { convertSingleQuotes } from "../../shared";
+import { convertSingleQuotes } from "../../shared-logic";
 import type { FormFieldInput } from "../../types";
 
 // Validate a form field value (context)
