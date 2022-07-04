@@ -1,25 +1,16 @@
-import type { FormFieldInput, MultiStepForm } from "../../types";
+import type { FormFieldInput, FormBlueprint } from "../../types";
 
 // Take the form values from the request
 // form data and add them to context
 export function addFormValuesToContext({
-  formType,
   formBlueprint,
   body,
   context,
-}:
-  | {
-      formType: "multipart";
-      context: any;
-      formBlueprint: MultiStepForm;
-      body: FormData;
-    }
-  | {
-      formType: "basic";
-      context: any;
-      formBlueprint: FormFieldInput[];
-      body: FormData;
-    }): any {
+}: {
+  context: any;
+  formBlueprint: FormBlueprint;
+  body: FormData;
+}): any {
   // Get the inputs from the form
   function addFieldToContext(field: FormFieldInput) {
     // Get the form field value
@@ -101,31 +92,23 @@ export function addFormValuesToContext({
         // console.log({ contextAfterDelete: context });
 
         addFieldToContext(checkbox);
-        console.log("hi neighbors");
+        //        console.log("hi neighbors");
       });
     }
   }
 
   // Use the form structure to create a context object
-  if (formType === "basic") {
-    formBlueprint.forEach((field) => {
+
+  // Get the current form step to know what to add to context
+  const currentFormStep = context.currentStep;
+
+  // console.log({ currentFormStep, formBlueprint, context });
+
+  // console.log("lol: ", typeof formBlueprint[currentFormStep]);
+
+  for (const field of formBlueprint[currentFormStep]?.fields) {
+    if (field) {
       addFieldToContext(field);
-    });
-  }
-
-  if (formType === "multipart") {
-    // Get the current form step to know what to add to context
-    const currentFormStep = context.currentStep;
-
-    // console.log({ currentFormStep, formBlueprint, context });
-
-    // console.log("lol: ", typeof formBlueprint[currentFormStep]);
-
-    // @ts-ignore
-    for (const field of formBlueprint[currentFormStep]?.fields) {
-      if (field) {
-        addFieldToContext(field);
-      }
     }
   }
 

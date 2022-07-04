@@ -122,7 +122,7 @@ export async function formActionFunction({
   // Validate the form inputs using the validation
   // methods from the form structure
   if (formType === "basic") {
-    console.log("basically");
+    //    console.log("basically");
 
     formBlueprint.forEach((formField) => {
       validateFormFieldValue({ context, formField });
@@ -207,7 +207,7 @@ export async function formActionFunction({
         request,
       });
     } else {
-      console.log("pow");
+      //      console.log("pow");
 
       // console.log("whats up dawg?");
       // Still at the beginning or middle of the form

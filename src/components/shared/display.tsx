@@ -44,7 +44,7 @@ export function displayFieldErrors({
     <>
       {fieldErrors.length >= 1 && fieldVisited
         ? fieldErrors.map((fieldError) => {
-            console.log({ fieldError });
+            //            console.log({ fieldError });
 
             if (fieldErrors.length === 1) {
               return (

@@ -1,13 +1,7 @@
-import type { FormFieldInput, MultiStepForm } from "../../types";
-export declare function addFormValuesToContext({ formType, formBlueprint, body, context, }: {
-    formType: "multipart";
+import type { FormBlueprint } from "../../types";
+export declare function addFormValuesToContext({ formBlueprint, body, context, }: {
     context: any;
-    formBlueprint: MultiStepForm;
-    body: FormData;
-} | {
-    formType: "basic";
-    context: any;
-    formBlueprint: FormFieldInput[];
+    formBlueprint: FormBlueprint;
     body: FormData;
 }): any;
 //# sourceMappingURL=add-form-values-to-context.d.ts.map

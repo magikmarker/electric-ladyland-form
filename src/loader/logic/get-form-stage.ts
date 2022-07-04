@@ -1,11 +1,11 @@
-import type { MultiStepForm } from "../../types";
+import type { FormBlueprint } from "../../types";
 
 function getFormStage({
   context,
   formBlueprint,
 }: {
   context: any;
-  formBlueprint: MultiStepForm;
+  formBlueprint: FormBlueprint;
 }): "beginning" | "middle" | "end" {
   // What stage of the form are we in
   // Beginning - Middle - End

@@ -1,21 +1,7 @@
-import type { FormFieldInput, MultiStepForm } from "../types";
-export declare function formActionFunction({ formType, request, formBlueprint, handleDataFn, successRedirectPath, formUtilitiesFromRemixApp, }: {
-    formType: "basic";
+import type { FormBlueprint } from "../types";
+export declare function formActionFunction({ request, formBlueprint, handleDataFn, successRedirectPath, formUtilitiesFromRemixApp, }: {
     request: Request;
-    formBlueprint: FormFieldInput[];
-    handleDataFn: any;
-    successRedirectPath: string;
-    formUtilitiesFromRemixApp: {
-        commitSession: any;
-        getSession: any;
-        destroySession: any;
-        redirect: any;
-        json: any;
-    };
-} | {
-    formType: "multipart";
-    request: Request;
-    formBlueprint: MultiStepForm;
+    formBlueprint: FormBlueprint;
     handleDataFn: any;
     successRedirectPath: string;
     formUtilitiesFromRemixApp: {

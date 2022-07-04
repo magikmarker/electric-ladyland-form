@@ -21,7 +21,7 @@ export function Radio({
       })}
 
       {fieldBlueprint.options.map((radioValue) => {
-        console.log({ radioValue });
+        //        console.log({ radioValue });
 
         let defaultRadioValue = fieldBlueprint.initialValue;
 

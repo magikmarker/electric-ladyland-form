@@ -100,14 +100,14 @@ export async function formLoaderFunction({
 
     return {
       context,
-      currentStepBlueprint: formBlueprint[context.currentStep]?.fields,
+      formStructure: formBlueprint[context.currentStep]?.fields,
       commitSession,
       session,
     };
   } else {
     return {
       context,
-      currentStepBlueprint: formBlueprint,
+      formStructure: formBlueprint,
       commitSession,
       session,
     };

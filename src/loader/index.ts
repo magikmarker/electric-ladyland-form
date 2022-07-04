@@ -1,4 +1,4 @@
-import type { FormFieldInput, MultiStepForm } from "../types";
+import type { FormBlueprint } from "../types";
 import {
   checkForRelevantContext,
   getFormStage,
@@ -6,36 +6,27 @@ import {
 } from "./logic";
 
 export async function formLoaderFunction({
-  basicOrMultipart,
   request,
   formBlueprint,
   formUtilitiesFromRemixApp,
-}:
-  | {
-      basicOrMultipart: "multipart";
-      request: Request;
-      formBlueprint: MultiStepForm;
-      formUtilitiesFromRemixApp: {
-        commitSession: any;
-        getSession: any;
-        destroySession: any;
-        json: any;
-      };
-    }
-  | {
-      basicOrMultipart: "basic";
-      request: Request;
-      formBlueprint: FormFieldInput[];
-      formUtilitiesFromRemixApp: {
-        commitSession: any;
-        getSession: any;
-        destroySession: any;
-        json: any;
-      };
-    }): Promise<any> {
+}: {
+  request: Request;
+  formBlueprint: FormBlueprint;
+  formUtilitiesFromRemixApp: {
+    commitSession: any;
+    getSession: any;
+    destroySession: any;
+    json: any;
+  };
+}): Promise<any> {
   // Get the form utilities by spreading the form utilities object
   const { commitSession, getSession, destroySession, json } =
     formUtilitiesFromRemixApp;
+  let basicOrMultipart: "basic" | "multipart" = "basic";
+
+  formBlueprint.length > 1
+    ? (basicOrMultipart = "multipart")
+    : (basicOrMultipart = "basic");
 
   const session = await getSession(request.headers.get("Cookie"));
 
@@ -44,34 +35,17 @@ export async function formLoaderFunction({
   // Check to see if the current context matches the current
   // form structure. If it doesn't match, there is a good chance
   // that there is no context or we are coming from a different form
-  if (basicOrMultipart === "basic") {
-    context = checkForRelevantContext({
-      formBlueprint,
-      basicOrMultipart,
-      context,
-    });
-  } else {
-    context = checkForRelevantContext({
-      formBlueprint,
-      basicOrMultipart,
-      context,
-    });
-  }
+  context = checkForRelevantContext({
+    formBlueprint,
+    context,
+  });
 
   // If the context object doesn't have any length, we
   // know that it is empty and we need to seed it
   if (Object.keys(context).length < 1) {
-    if (basicOrMultipart === "basic") {
-      context = seedContextWithInitialValues({
-        formBlueprint,
-        basicOrMultipart,
-      });
-    } else {
-      context = seedContextWithInitialValues({
-        formBlueprint,
-        basicOrMultipart,
-      });
-    }
+    context = seedContextWithInitialValues({
+      formBlueprint,
+    });
   }
 
   // Get the current step
@@ -89,7 +63,7 @@ export async function formLoaderFunction({
     // console.log({ formStage, context });
 
     if (context.currentStep > 0 && Object.keys(context).length < 1) {
-      console.log("You shouldn't be here");
+      //      console.log("You shouldn't be here");
 
       return json(
         {},
@@ -110,21 +84,11 @@ export async function formLoaderFunction({
 
   session.set("context", context);
 
-  if (basicOrMultipart === "multipart") {
-    // console.log({ currentStep: context?.currentStep });
-
-    return {
-      context,
-      currentStepBlueprint: formBlueprint[context.currentStep]?.fields,
-      commitSession,
-      session,
-    };
-  } else {
-    return {
-      context,
-      currentStepBlueprint: formBlueprint,
-      commitSession,
-      session,
-    };
-  }
+  // console.log({ currentStep: context?.currentStep });
+  return {
+    context,
+    formStructure: formBlueprint[context.currentStep],
+    commitSession,
+    session,
+  };
 }

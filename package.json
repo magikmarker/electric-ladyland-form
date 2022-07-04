@@ -12,6 +12,7 @@
     "autoprefixer": "^10.4.7",
     "chokidar": "^3.5.3",
     "cssnano": "^5.1.12",
+    "cypress": "^10.3.0",
     "esbuild": "^0.14.48",
     "live-server": "^1.2.2",
     "node-css-mqpacker": "^9.0.0",

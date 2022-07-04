@@ -6,62 +6,51 @@ import {
   honeypotFieldHasValue,
   validateFormFieldValue,
 } from "./logic";
-import type { FormFieldInput, MultiStepForm } from "../types";
+import type { FormBlueprint } from "../types";
 import { getFormStage } from "../shared";
 
 export async function formActionFunction({
-  formType,
   request,
   formBlueprint,
   handleDataFn,
   successRedirectPath,
   formUtilitiesFromRemixApp,
-}:
-  | {
-      formType: "basic";
-      request: Request;
-      formBlueprint: FormFieldInput[];
-      handleDataFn: any;
-      successRedirectPath: string;
-      formUtilitiesFromRemixApp: {
-        commitSession: any;
-        getSession: any;
-        destroySession: any;
-        redirect: any;
-        json: any;
-      };
-    }
-  | {
-      formType: "multipart";
-      request: Request;
-      formBlueprint: MultiStepForm;
-      handleDataFn: any;
-      successRedirectPath: string;
-      formUtilitiesFromRemixApp: {
-        commitSession: any;
-        getSession: any;
-        destroySession: any;
-        redirect: any;
-        json: any;
-      };
-    }): Promise<any> {
+}: {
+  request: Request;
+  formBlueprint: FormBlueprint;
+  handleDataFn: any;
+  successRedirectPath: string;
+  formUtilitiesFromRemixApp: {
+    commitSession: any;
+    getSession: any;
+    destroySession: any;
+    redirect: any;
+    json: any;
+  };
+}): Promise<any> {
   // Get the form utilities by spreading the form utilities object
   const { commitSession, getSession, destroySession, redirect } =
     formUtilitiesFromRemixApp;
+
+  let basicOrMultipart: "basic" | "multipart" = "basic";
+  formBlueprint.length > 1
+    ? (basicOrMultipart = "multipart")
+    : (basicOrMultipart = "basic");
+
   // Get the current session
   const session = await getSession(request.headers.get("Cookie"));
 
-  console.log({ session });
+  //  console.log({ session });
 
   let { pathname } = new URL(request.url);
 
   let context: any = session.get("context") ?? {};
 
-  console.log({ context });
+  //  console.log({ context });
 
   // If there is no context, the session most likely timed out
   // We only really care about the context if it is a multipart form
-  if (formType === "multipart" && Object.keys(context).length < 1) {
+  if (basicOrMultipart === "multipart" && Object.keys(context).length < 1) {
     let { pathname } = new URL(request.url);
     // console.log({ pathname });
 
@@ -106,7 +95,7 @@ export async function formActionFunction({
   // console.log({ submitType });
 
   // Multipart - back button
-  if (formType === "multipart") {
+  if (basicOrMultipart === "multipart") {
     if (submitType === "back") {
       context.currentStep -= 1;
 
@@ -121,41 +110,21 @@ export async function formActionFunction({
   }
 
   // Add the form values to context
-  if (formType === "basic") {
-    await addFormValuesToContext({
-      formType,
-      formBlueprint,
-      body,
-      context,
-    });
-  } else {
-    await addFormValuesToContext({
-      formType,
-      formBlueprint,
-      body,
-      context,
-    });
-  }
+  await addFormValuesToContext({
+    formBlueprint,
+    body,
+    context,
+  });
 
   // Validate the form inputs using the validation
   // methods from the form structure
-  if (formType === "basic") {
-    console.log("basically");
-
-    formBlueprint.forEach((formField) => {
-      validateFormFieldValue({ context, formField });
-    });
+  if (!formBlueprint[context.currentStep].fields) {
+    throw new Error("No fields found in formBlueprint");
   }
 
-  if (formType === "multipart") {
-    const currentFormStep = context.currentStep;
-
-    for (const formField of formBlueprint[currentFormStep]?.fields) {
-      // console.log({ formField });
-
-      validateFormFieldValue({ context, formField });
-    }
-  }
+  formBlueprint[0].fields.forEach((formField) => {
+    validateFormFieldValue({ context, formField });
+  });
 
   let sessionData: any = {};
 
@@ -173,10 +142,8 @@ export async function formActionFunction({
   // In basic, we want to check all of the context entries
   // In multipart, we only want to check the context items
   // for the current step
-  // @ts-expect-error function overload not externally visible
   let errorsInContext = checkContextForErrors({
     context,
-    formType,
     formBlueprint,
   });
 
@@ -190,7 +157,7 @@ export async function formActionFunction({
     // Multipart Form
 
     // BASIC FORM
-    if (formType === "basic") {
+    if (basicOrMultipart === "basic") {
       return handleFormData({
         request,
         handleDataFn,
@@ -225,14 +192,14 @@ export async function formActionFunction({
         request,
       });
     } else {
-      console.log("pow");
+      //      console.log("pow");
 
       // console.log("whats up dawg?");
       // Still at the beginning or middle of the form
       // All the inputs were correct, we want to go to
       // the next stage of the form
       context.currentStep += 1;
-      console.log({ currentStep: context.currentStep });
+      //      console.log({ currentStep: context.currentStep });
 
       session.set("context", context);
 
@@ -244,7 +211,7 @@ export async function formActionFunction({
     }
   }
 
-  console.log("you're here?");
+  //  console.log("you're here?");
 
   return redirect(pathname, {
     headers: {

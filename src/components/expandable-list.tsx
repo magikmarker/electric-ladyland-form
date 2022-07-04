@@ -27,10 +27,10 @@ export function ExpandableList({
   const close = () => setShowDialog(false);
 
   useEffect(() => {
-    console.log("context changed");
+    //   console.log("context changed");
 
     setListItems(fieldContext?.value);
-    console.log({ listItems });
+    //    console.log({ listItems });
   }, [fieldContext, listItems]);
 
   let { listItemStructure } = fieldBlueprint;
@@ -105,86 +105,88 @@ export function ExpandableList({
                 </tr>
               </thead>
 
-              {listItems.map((item: any, index: number) => {
-                // console.log({ item });
-                return (
-                  <tr className="lit-row" key={index}>
-                    {Object.keys(fieldsToShowInTable).map(
-                      (fieldToShow, index) => {
-                        console.log({ index });
+              <tbody>
+                {listItems.map((item: any, index: number) => {
+                  // console.log({ item });
+                  return (
+                    <tr className="lit-row" key={index}>
+                      {Object.keys(fieldsToShowInTable).map(
+                        (fieldToShow, index) => {
+                          //                         console.log({ index });
 
-                        let cellFlexValue;
+                          let cellFlexValue;
 
-                        let alignTextValue;
+                          let alignTextValue;
 
-                        listItemStructure.forEach((itemStructure: any) => {
-                          if (itemStructure.name === fieldToShow) {
-                            cellFlexValue = itemStructure.tableFlex;
-                            alignTextValue = itemStructure.alignText;
-                          }
-                        });
+                          listItemStructure.forEach((itemStructure: any) => {
+                            if (itemStructure.name === fieldToShow) {
+                              cellFlexValue = itemStructure.tableFlex;
+                              alignTextValue = itemStructure.alignText;
+                            }
+                          });
 
-                        // flexValueArray.filter((item) => {
-                        //   if (item !== undefined && typeof item === "number") {
-                        //     return item;
-                        //   }
-                        // });
+                          // flexValueArray.filter((item) => {
+                          //   if (item !== undefined && typeof item === "number") {
+                          //     return item;
+                          //   }
+                          // });
 
-                        console.log({ cellFlexValue });
+                          //                        console.log({ cellFlexValue });
 
-                        return (
-                          <th
-                            className="lit-cell"
-                            data-flex={cellFlexValue}
-                            data-align-text={alignTextValue}
-                            key={`${item[fieldToShow]}-${index}`}
-                          >
-                            {item[fieldToShow]?.value}
-                          </th>
-                        );
-                      }
-                    )}
-                    <th
-                      className="lit-cell"
-                      data-align-text="right"
-                      data-flex={3}
-                    >
-                      <button
-                        className="edit-item-button expand-click-target"
-                        data-test={`edit-${index}`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setSelectedIndex(index);
-                          setSelectedAction("edit-item");
-
-                          open();
-                        }}
+                          return (
+                            <th
+                              className="lit-cell"
+                              data-flex={cellFlexValue}
+                              data-align-text={alignTextValue}
+                              key={`${item[fieldToShow]}-${index}`}
+                            >
+                              {item[fieldToShow]?.value}
+                            </th>
+                          );
+                        }
+                      )}
+                      <th
+                        className="lit-cell"
+                        data-align-text="right"
+                        data-flex={3}
                       >
-                        Edit
-                      </button>
-                    </th>
-                    <th
-                      className="lit-cell"
-                      data-align-text="right"
-                      data-flex={3}
-                    >
-                      <button
-                        className="delete-item-button expand-click-target"
-                        data-test={`delete-${index}`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setSelectedIndex(index);
-                          setSelectedAction("delete-item");
+                        <button
+                          className="edit-item-button expand-click-target"
+                          data-test={`edit-${index}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setSelectedIndex(index);
+                            setSelectedAction("edit-item");
 
-                          open();
-                        }}
+                            open();
+                          }}
+                        >
+                          Edit
+                        </button>
+                      </th>
+                      <th
+                        className="lit-cell"
+                        data-align-text="right"
+                        data-flex={3}
                       >
-                        Delete
-                      </button>
-                    </th>
-                  </tr>
-                );
-              })}
+                        <button
+                          className="delete-item-button expand-click-target"
+                          data-test={`delete-${index}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setSelectedIndex(index);
+                            setSelectedAction("delete-item");
+
+                            open();
+                          }}
+                        >
+                          Delete
+                        </button>
+                      </th>
+                    </tr>
+                  );
+                })}
+              </tbody>
             </table>
           </div>
         </>
@@ -209,9 +211,9 @@ export function ExpandableList({
                 <span className="block h-3"></span>
                 <p className="confirm-delete-text">
                   Are you sure you want to delete item{" "}
-                  {listItems.map((item, index) => {
+                  {listItems.map((index: number) => {
                     if (index === selectedIndex) {
-                      console.log({ item: item[Object.keys(item)[0]] });
+                      //                      console.log({ item: item[Object.keys(item)[0]] });
                       return listItems[selectedIndex][
                         Object.keys(listItems[selectedIndex])[0]
                       ]?.value;

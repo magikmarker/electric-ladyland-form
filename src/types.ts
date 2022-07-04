@@ -58,7 +58,7 @@ export type ExpandableListBlueprint = {
   name: string;
   label?: string;
   description?: string;
-  listItemStructure: FormBlueprint;
+  listItemStructure: FormFieldInput[];
   initialValue: any[];
   addItemLabel: string;
   editItemLabel: string;
@@ -94,12 +94,13 @@ export type FormFieldInput =
   | CheckboxGroupBlueprint
   | ExpandableListBlueprint;
 
-export type FormBlueprint = FormFieldInput[];
+// export type FormBlueprint = FormFieldInput[];
 
-export type Step = {
+export type FormStage = {
+  stageTitle?: string;
   fields: FormFieldInput[];
   nextButtonText?: string;
   backButtonText?: string;
 };
 
-export type MultiStepForm = Step[];
+export type FormBlueprint = FormStage[];

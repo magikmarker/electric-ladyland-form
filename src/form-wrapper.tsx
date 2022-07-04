@@ -1,29 +1,31 @@
 import type { ReactNode } from "react";
-import type { FormFieldInput } from "./types";
+import type { FormFieldInput, FormStage } from "./types";
 // @ts-expect-error sometimes you walk the line, sometimes it walks you
 import React from "react";
 import { Form } from "@remix-run/react";
 import { FormField } from "./form-field";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-export function MultipartForm({
+export function ElectricLadylandForm({
   context,
   formStructure,
   action,
+  submitText = "Submit",
   reloadDocument = false,
 }: {
   context: any;
-  formStructure: FormFieldInput[];
+  formStructure: FormStage;
   action?: string;
+  submitText?: string;
   reloadDocument?: boolean;
 }) {
-  console.log({ formStructure });
+  //   console.log({ formStructure });
 
   return (
     <div className="el-form-wrapper">
       <FormWrapper reloadDocument={reloadDocument} action={action}>
         <HoneypotField />
-        {formStructure.map((field: FormFieldInput) => {
+        {formStructure.fields.map((field: FormFieldInput) => {
           return <FormField field={field} context={context} key={field.name} />;
         })}
         {context.dataHandlerErrorMessage && context.formStage === "end" ? (
@@ -58,7 +60,7 @@ export function MultipartForm({
               type="submit"
               value="submit"
             >
-              Submit
+              {submitText}
               <span className="el-form-right-icon">
                 <FaChevronRight aria-hidden="true" />
               </span>
@@ -83,43 +85,6 @@ export function MultipartForm({
         </Form>
       )}
     </div>
-  );
-}
-
-export function BasicForm({
-  context,
-  formStructure,
-  action,
-  submitText,
-  reloadDocument = false,
-}: {
-  context: any;
-  formStructure: FormFieldInput[];
-  action?: string;
-  submitText?: string;
-  reloadDocument?: boolean;
-}) {
-  return (
-    <FormWrapper reloadDocument={reloadDocument} action={action}>
-      <HoneypotField />
-      {formStructure.map((field: FormFieldInput) => {
-        return <FormField field={field} context={context} key={field.name} />;
-      })}
-      {context.dataHandlerErrorMessage && (
-        <>
-          <div className="font-display text-lg font-semibold text-danger-5">
-            {context.dataHandlerErrorMessage}
-          </div>
-          <span className="block h-6"></span>
-        </>
-      )}
-      <span className="block h-0.5"></span>
-      {submitText ? (
-        <FormButton type="submit">{submitText}</FormButton>
-      ) : (
-        <FormButton type="submit">Submit</FormButton>
-      )}
-    </FormWrapper>
   );
 }
 

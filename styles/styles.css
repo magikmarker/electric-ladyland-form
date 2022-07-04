@@ -217,8 +217,8 @@
   background-color: var(--color-success-05);
   color: var(--color-success-9);
   font-weight: 700;
-  margin: 12px 0;
-  margin-left: -6px;
+  margin: 22px 0;
+  margin-top: 28px;
   box-shadow: var(--shadow-elevation-low);
 }
 
@@ -230,12 +230,12 @@
 
 .el-form-left-icon {
   margin-right: 10px;
-  margin-bottom: -4px;
+  margin-bottom: -2px;
 }
 
 .el-form-right-icon {
   margin-left: 10px;
-  margin-bottom: -4px;
+  margin-bottom: -2px;
 }
 
 .el-form-button-forward {
@@ -284,7 +284,7 @@
 .el-form-field-description {
   padding: 0;
   font-size: 16px;
-  margin-top: -4px;
+  margin-top: -2px;
   margin-bottom: 8px;
   font-weight: 400;
 }
@@ -418,6 +418,12 @@ table {
   width: 100%;
   display: block;
   margin-top: 28px;
+}
+
+tbody {
+  display: block;
+  width: 100%;
+  overflow: auto;
 }
 
 tr {

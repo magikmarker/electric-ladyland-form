@@ -52,7 +52,7 @@ export declare type ExpandableListBlueprint = {
     name: string;
     label?: string;
     description?: string;
-    listItemStructure: FormBlueprint;
+    listItemStructure: FormFieldInput[];
     initialValue: any[];
     addItemLabel: string;
     editItemLabel: string;
@@ -78,12 +78,12 @@ export declare type TextFieldBlueprint = {
     alignText?: AlignText;
 };
 export declare type FormFieldInput = StatefulRadioFieldBlueprint | RadioFieldBlueprint | TextFieldBlueprint | CheckboxBlueprint | HiddenFieldBlueprint | CheckboxGroupBlueprint | ExpandableListBlueprint;
-export declare type FormBlueprint = FormFieldInput[];
-export declare type Step = {
+export declare type FormStage = {
+    stageTitle?: string;
     fields: FormFieldInput[];
     nextButtonText?: string;
     backButtonText?: string;
 };
-export declare type MultiStepForm = Step[];
+export declare type FormBlueprint = FormStage[];
 export {};
 //# sourceMappingURL=types.d.ts.map

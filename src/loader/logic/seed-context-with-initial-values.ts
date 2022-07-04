@@ -1,54 +1,27 @@
-import type { FormFieldInput, MultiStepForm } from "../../types";
+import type { FormFieldInput, FormBlueprint } from "../../types";
 
 function seedContextWithInitialValues({
-  basicOrMultipart,
   formBlueprint,
 }: {
-  basicOrMultipart: "multipart";
-  formBlueprint: MultiStepForm;
-}): any;
-function seedContextWithInitialValues({
-  basicOrMultipart,
-  formBlueprint,
-}: {
-  basicOrMultipart: "basic";
-  formBlueprint: FormFieldInput[];
-}): any;
-function seedContextWithInitialValues({
-  basicOrMultipart,
-  formBlueprint,
-}: {
-  basicOrMultipart: "multipart" | "basic";
-  formBlueprint: MultiStepForm | FormFieldInput[];
+  formBlueprint: FormBlueprint;
 }): any {
   // Give the context object initial values
   let context: any = {};
 
-  if (basicOrMultipart === "multipart") {
-    for (const step of formBlueprint) {
-      // console.log({ step });
+  for (const step of formBlueprint) {
+    // console.log({ step });
 
-      // @ts-ignore
-      for (const field of step?.fields) {
-        // console.log({ field });
+    // @ts-ignore
+    for (const field of step?.fields) {
+      // console.log({ field });
 
-        if (field) {
-          addFieldToContext({ field, context });
-        }
-      }
-    }
-
-    context.currentStep = 0;
-  }
-
-  if (basicOrMultipart === "basic") {
-    for (const nestedField of formBlueprint) {
-      if (typeof nestedField === "object") {
-        // @ts-ignore
-        addFieldToContext({ field: nestedField, context });
+      if (field) {
+        addFieldToContext({ field, context });
       }
     }
   }
+
+  context.currentStep = 0;
 
   return context;
 }

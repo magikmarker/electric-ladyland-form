@@ -1,7 +1,7 @@
-import type { MultiStepForm } from "../../types";
+import type { FormBlueprint } from "../../types";
 declare function getFormStage({ context, formBlueprint, }: {
     context: any;
-    formBlueprint: MultiStepForm;
+    formBlueprint: FormBlueprint;
 }): "beginning" | "middle" | "end";
 export { getFormStage };
 //# sourceMappingURL=get-form-stage.d.ts.map

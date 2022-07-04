@@ -1,13 +1,7 @@
-import type { FormFieldInput } from "./types";
-export declare function MultipartForm({ context, formStructure, action, reloadDocument, }: {
+import type { FormStage } from "./types";
+export declare function ElectricLadylandForm({ context, formStructure, action, submitText, reloadDocument, }: {
     context: any;
-    formStructure: FormFieldInput[];
-    action?: string;
-    reloadDocument?: boolean;
-}): JSX.Element;
-export declare function BasicForm({ context, formStructure, action, submitText, reloadDocument, }: {
-    context: any;
-    formStructure: FormFieldInput[];
+    formStructure: FormStage;
     action?: string;
     submitText?: string;
     reloadDocument?: boolean;

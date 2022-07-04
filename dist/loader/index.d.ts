@@ -1,18 +1,7 @@
-import type { FormFieldInput, MultiStepForm } from "../types";
-export declare function formLoaderFunction({ basicOrMultipart, request, formBlueprint, formUtilitiesFromRemixApp, }: {
-    basicOrMultipart: "multipart";
+import type { FormBlueprint } from "../types";
+export declare function formLoaderFunction({ request, formBlueprint, formUtilitiesFromRemixApp, }: {
     request: Request;
-    formBlueprint: MultiStepForm;
-    formUtilitiesFromRemixApp: {
-        commitSession: any;
-        getSession: any;
-        destroySession: any;
-        json: any;
-    };
-} | {
-    basicOrMultipart: "basic";
-    request: Request;
-    formBlueprint: FormFieldInput[];
+    formBlueprint: FormBlueprint;
     formUtilitiesFromRemixApp: {
         commitSession: any;
         getSession: any;
