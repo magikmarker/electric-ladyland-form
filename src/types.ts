@@ -75,8 +75,8 @@ export type TextFieldBlueprint = {
   placeholder?: string;
   initialValue?: string;
   validation: {
-    formInputPattern?: string;
-    formInputMessage?: string;
+    browserPattern?: string;
+    browserMessage?: string;
     patterns: string[];
     messages: string[];
   };

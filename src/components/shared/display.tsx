@@ -81,6 +81,7 @@ export function displayFieldLabelDescriptionError({
 }) {
   // fieldErrors = ["Something Very Bad Happened", "Another Bad Thing"];
   // fieldVisited = true;
+  // console.log({fieldErrorsInsideDisplayFieldLabelDescriptionError: fieldErrors});
   return (
     <>
       <label htmlFor={fieldBlueprint.name} key={fieldBlueprint.name}>

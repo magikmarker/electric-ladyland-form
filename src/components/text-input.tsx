@@ -18,6 +18,8 @@ export function TextInput({
     fieldVisited,
     setFieldVisited,
   } = useFormField({ fieldBlueprint, fieldContext });
+  //  console.log({ validation: fieldBlueprint.validation});
+  //  console.log({ fieldErrors, fieldVisited });
   return (
     <>
       {displayFieldLabelDescriptionError({
@@ -45,8 +47,8 @@ export function TextInput({
               fieldValidation: fieldBlueprint.validation,
             });
           }}
-          pattern={fieldBlueprint.validation.formInputPattern}
-          title={fieldBlueprint.validation.formInputMessage}
+          pattern={fieldBlueprint.validation.browserPattern}
+          title={fieldBlueprint.validation.browserMessage}
           type={fieldBlueprint.type}
           autoCorrect="false"
           autoComplete="false"
@@ -56,7 +58,7 @@ export function TextInput({
           name={fieldBlueprint.name}
           id={fieldBlueprint.name}
           data-test={fieldBlueprint.name}
-          className="w-full font-medium mm:text-lg p-2 px-3 bg-white rounded"
+          className="el-text-input"
           required={fieldBlueprint.required}
           rows={5}
           defaultValue={defaultValue}

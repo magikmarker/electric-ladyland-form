@@ -19,7 +19,7 @@ export function ElectricLadylandForm({
   submitText?: string;
   reloadDocument?: boolean;
 }) {
-  console.log({ formStructure });
+//  console.log({ formStructure });
 
   return (
     <div className="el-form-wrapper">

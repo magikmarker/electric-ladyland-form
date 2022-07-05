@@ -1,6 +1,6 @@
 {
   "name": "electric-ladyland-form",
-  "version": "0.0.2-2",
+  "version": "0.0.1",
   "description": "Remix.run form library because form libraries are easy and there isn't enough of them.",
   "platform": "node",
   "main": "dist/index.cjs.js",
@@ -12,7 +12,6 @@
     "autoprefixer": "^10.4.7",
     "chokidar": "^3.5.3",
     "cssnano": "^5.1.12",
-    "cypress": "^10.3.0",
     "esbuild": "^0.14.48",
     "live-server": "^1.2.2",
     "node-css-mqpacker": "^9.0.0",
@@ -23,7 +22,7 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "test": "echo \"No test specified\"",
+    "test": "echo \"No test specified\" && exit 1",
     "dev": "run-p dev:*",
     "dev:postcss": "postcss styles --base styles --dir dist/styles -w",
     "dev:esbuild": "node serve.js",
