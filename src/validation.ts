@@ -137,8 +137,18 @@ export function stringValidator({
     };
   }
 
-  validationObject = validation[validationType];
+  // Note: we have to do an Object.assign here, we can't simply just
+  // assign validationObject[validationType] to validationObject because
+  // that attaches the the validationType object inside this function.
+  // Any changes that we make inside of this function will mutate the
+  // validation type outside of the object, causing unintended behavior
+  // when we try to reference it again inside of the next function.
+  //
+  // We need a clone with no references to the original object, that's
+  // what Object.assign gives 
+  validationObject = Object.assign({}, validation[validationType]);
 
+  
   if (
     validationType === "sentences" ||
     validationType === "lettersOnly" ||

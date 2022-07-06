@@ -33,6 +33,9 @@ export async function handleFormData({
   let [success, message] = handleDataResult;
 
   if (success) {
+      // clear the context values so that the form fields are empty if 
+      // the user goes back to the same form
+    context = {};
     context.dataHandlerSuccessMessage = message;
     context.dataHandlerErrorMessage = "";
     session.set("context", context);

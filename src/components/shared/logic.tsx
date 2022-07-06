@@ -24,7 +24,7 @@ export function onChange({
   fieldValidation: { patterns: string[]; messages: string[] };
 }) {
    //  console.log("hello from onChange");
-  //  console.log({ validation: fieldValidation, fieldErrors });
+    console.log({ validation: fieldValidation, fieldErrors });
     let fieldIsValid = true;
   fieldValidation.patterns.forEach(async (pattern, index) => {
     let regexTestPattern = new RegExp(pattern, "gim");
