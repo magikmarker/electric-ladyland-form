@@ -3,6 +3,7 @@ import type {
   CheckboxGroupBlueprint,
   ExpandableListBlueprint,
   RadioFieldBlueprint,
+  SelectFieldBlueprint,
   StatefulRadioFieldBlueprint,
   TextFieldBlueprint,
 } from "../../types";
@@ -72,6 +73,7 @@ export function displayFieldLabelDescriptionError({
 }: {
   fieldBlueprint:
     | TextFieldBlueprint
+    | SelectFieldBlueprint
     | RadioFieldBlueprint
     | StatefulRadioFieldBlueprint
     | CheckboxGroupBlueprint

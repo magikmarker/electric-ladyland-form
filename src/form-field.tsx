@@ -5,6 +5,7 @@ import { Radio } from "./components/radio";
 import { CheckboxGroup } from "./components/checkbox-group";
 import { ExpandableList } from "./components/expandable-list";
 import { StatefulRadio } from "./components/stateful-radio";
+import { Select } from "./components/select";
 
 function FormField({
   field,
@@ -39,6 +40,14 @@ function FormField({
       </div>
     );
   }
+
+  if (field.type === "select") {
+    return (
+        <div className="el-field-item">
+            <Select fieldBlueprint={field} fieldContext={context[field.name]} />
+        </div>
+    );
+    }
 
   if (field.type === "checkbox-group") {
     return (

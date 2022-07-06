@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { CheckboxGroupBlueprint, ExpandableListBlueprint, RadioFieldBlueprint, StatefulRadioFieldBlueprint, TextFieldBlueprint } from "../../types";
+import type { CheckboxGroupBlueprint, ExpandableListBlueprint, RadioFieldBlueprint, SelectFieldBlueprint, StatefulRadioFieldBlueprint, TextFieldBlueprint } from "../../types";
 export declare function FieldLabel({ className, children, }: {
     className?: string;
     children: ReactNode;
@@ -12,7 +12,7 @@ export declare function displayFieldErrors({ fieldErrors, fieldVisited, }: {
     fieldVisited: boolean;
 }): JSX.Element;
 export declare function displayFieldLabelDescriptionError({ fieldBlueprint, fieldErrors, fieldVisited, }: {
-    fieldBlueprint: TextFieldBlueprint | RadioFieldBlueprint | StatefulRadioFieldBlueprint | CheckboxGroupBlueprint | ExpandableListBlueprint;
+    fieldBlueprint: TextFieldBlueprint | SelectFieldBlueprint | RadioFieldBlueprint | StatefulRadioFieldBlueprint | CheckboxGroupBlueprint | ExpandableListBlueprint;
     fieldErrors?: string[];
     fieldVisited?: boolean;
 }): JSX.Element;

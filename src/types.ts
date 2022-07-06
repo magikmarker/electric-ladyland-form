@@ -32,6 +32,19 @@ export type RadioFieldBlueprint = {
   alignText?: AlignText;
 };
 
+export type SelectFieldBlueprint = {
+    type: "select";
+    testName?: string;
+    name: string;
+    description?: string;
+    label: string;
+    options: string[];
+    initialValue: string;
+    showOnMobileTable?: boolean;
+    tableFlex?: number;
+    alignText?: AlignText;
+}
+
 export type CheckboxBlueprint = {
   testName?: string;
   type: "checkbox";
@@ -92,7 +105,9 @@ export type FormFieldInput =
   | CheckboxBlueprint
   | HiddenFieldBlueprint
   | CheckboxGroupBlueprint
-  | ExpandableListBlueprint;
+  | ExpandableListBlueprint
+    | SelectFieldBlueprint;
+  
 
 export type FormStage = {
   stageTitle?: string;

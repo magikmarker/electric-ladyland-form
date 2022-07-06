@@ -28,6 +28,18 @@ export declare type RadioFieldBlueprint = {
     tableFlex?: number;
     alignText?: AlignText;
 };
+export declare type SelectFieldBlueprint = {
+    type: "select";
+    testName?: string;
+    name: string;
+    description?: string;
+    label: string;
+    options: string[];
+    initialValue: string;
+    showOnMobileTable?: boolean;
+    tableFlex?: number;
+    alignText?: AlignText;
+};
 export declare type CheckboxBlueprint = {
     testName?: string;
     type: "checkbox";
@@ -77,7 +89,7 @@ export declare type TextFieldBlueprint = {
     tableFlex?: number;
     alignText?: AlignText;
 };
-export declare type FormFieldInput = StatefulRadioFieldBlueprint | RadioFieldBlueprint | TextFieldBlueprint | CheckboxBlueprint | HiddenFieldBlueprint | CheckboxGroupBlueprint | ExpandableListBlueprint;
+export declare type FormFieldInput = StatefulRadioFieldBlueprint | RadioFieldBlueprint | TextFieldBlueprint | CheckboxBlueprint | HiddenFieldBlueprint | CheckboxGroupBlueprint | ExpandableListBlueprint | SelectFieldBlueprint;
 export declare type FormStage = {
     stageTitle?: string;
     fields: FormFieldInput[];

@@ -22,6 +22,7 @@ export function addFormValuesToContext({
       field.type === "text" ||
       field.type === "textarea" ||
       field.type === "radio" ||
+  field.type === "select" ||
       field.type === "hidden" ||
       field.type === "stateful-radio"
     ) {
