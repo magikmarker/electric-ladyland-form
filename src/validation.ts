@@ -2,7 +2,7 @@ export const validationPatterns = {
   phoneNumber: "^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$",
   email: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$",
   postalCode: "^(?!.*[DFIOQU])[A-VXY][0-9][A-Z]\\s?[0-9][A-Z][0-9]$",
-  password: "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,}).*$",
+  password: "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$.%^&*])(?=.{8,}).*$",
 };
 
 const validationStringPatterns = {
@@ -10,7 +10,7 @@ const validationStringPatterns = {
   numbers: "0-9",
   spaces: "\\s",
   dotsAndCommas: "\\.\\,",
-  punctuation: '"!@#$%^&*()_+-=|;:,./<>?',
+  punctuation: '"!-@#$%*()|;:,./?',
   minLength5: "^.{5,}$",
 };
 
