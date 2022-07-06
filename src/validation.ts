@@ -10,7 +10,7 @@ const validationStringPatterns = {
   numbers: "0-9",
   spaces: "\\s",
   dotsAndCommas: "\\.\\,",
-  punctuation: '"!-@#$%*()|;:,./?',
+  punctuation: '"!\\-@#$%*()|;:,./?',
   minLength5: "^.{5,}$",
 };
 
