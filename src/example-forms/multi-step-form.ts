@@ -1,7 +1,5 @@
-import type { MultiStepForm, Step } from "electric-ladyland-form";
-import { validation } from "~/services/electric-ladyland/validation";
 
-const notImportantStep: Step = {
+const notImportantStep = {
   fields: [
     {
       name: "not-important",
@@ -81,7 +79,7 @@ const notImportantStep: Step = {
   nextButtonText: "Todo List",
 };
 
-const todoStep: Step = {
+const todoStep = {
   fields: [
     {
       type: "select",
@@ -143,7 +141,7 @@ const todoStep: Step = {
   nextButtonText: "Less Important",
 };
 
-const lessImportantStep: Step = {
+const lessImportantStep= {
   fields: [
     {
       name: "less-important",
@@ -161,7 +159,7 @@ const lessImportantStep: Step = {
   nextButtonText: "Submit",
 };
 
-export const multiItemStepForm: MultiStepForm = [
+export const multiItemStepForm = [
   notImportantStep,
   todoStep,
   lessImportantStep,

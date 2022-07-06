@@ -1,6 +1,5 @@
-import type { FormBlueprint } from "electric-ladyland-form/dist/types";
 
-export const selectFormBlueprint: FormBlueprint = [
+export const selectFormBlueprint = [
   {
     fields: [
       {

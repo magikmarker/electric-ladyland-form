@@ -1,6 +1,5 @@
-import type { FormBlueprint } from "electric-ladyland-form";
 
-export const radioFormBlueprint: FormBlueprint = [
+export const radioFormBlueprint = [
   {
     fields: [
       {
@@ -11,6 +10,5 @@ export const radioFormBlueprint: FormBlueprint = [
         initialValue: "no",
       },
     ],
-    submitText: "Submitter",
   },
 ];

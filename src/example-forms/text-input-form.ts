@@ -1,7 +1,5 @@
-import type { FormBlueprint } from "electric-ladyland-form/dist/types";
-import { stringValidator } from "electric-ladyland-form";
-
-export const textInputFormBlueprint: FormBlueprint = [
+import {stringValidator} from "../validation";
+export const textInputFormBlueprint = [
   {
     fields: [
       {

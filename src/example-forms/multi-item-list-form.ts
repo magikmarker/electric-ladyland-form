@@ -1,5 +1,3 @@
-import type { FormBlueprint } from "electric-ladyland-form/dist/types";
-import { stringValidator } from "electric-ladyland-form";
 
 export const multiItemFormBlueprint = [
   {

@@ -1,6 +1,5 @@
-import type { FormBlueprint } from "electric-ladyland-form/dist/types";
 
-export const checkboxGroupFormBlueprint: FormBlueprint = [
+export const checkboxGroupFormBlueprint = [
   {
     fields: [
       {

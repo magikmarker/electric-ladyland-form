@@ -1,7 +1,6 @@
-import type { FormBlueprint } from "electric-ladyland-form/dist/types";
-import { stringValidator } from "electric-ladyland-form";
+import {stringValidator} from "../validation";
 
-export const statefulRadioBlueprint: FormBlueprint = [
+export const statefulRadioBlueprint = [
   {
     fields: [
       {
@@ -21,8 +20,8 @@ export const statefulRadioBlueprint: FormBlueprint = [
               initialValue: "",
               validation: stringValidator({
                 validationType: "sentences",
-                min: "2",
-                max: "60",
+                min: 2,
+                max: 60,
               }),
             },
             {
@@ -33,8 +32,8 @@ export const statefulRadioBlueprint: FormBlueprint = [
               initialValue: "",
               validation: stringValidator({
                 validationType: "sentences",
-                min: "2",
-                max: "60",
+                min: 2,
+                max: 60,
               }),
             },
           ],
@@ -47,8 +46,8 @@ export const statefulRadioBlueprint: FormBlueprint = [
               initialValue: "",
               validation: stringValidator({
                 validationType: "sentences",
-                min: "2",
-                max: "60",
+                min: 2,
+                max: 60,
               }),
             },
             {
@@ -59,8 +58,8 @@ export const statefulRadioBlueprint: FormBlueprint = [
               initialValue: "",
               validation: stringValidator({
                 validationType: "sentences",
-                min: "2",
-                max: "60",
+                min: 2,
+                max: 60,
               }),
             },
           ],
