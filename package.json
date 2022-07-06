@@ -38,7 +38,8 @@
     "url": "git+https://github.com/magikmarker/electric-ladyland-form.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "keywords": [
     "Remix Run",
