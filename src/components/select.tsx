@@ -1,5 +1,7 @@
 import type { SelectFieldBlueprint } from "../types";
 import {useState} from "react";
+// @ts-ignore sometimes you walk the line, sometimes it walks you
+import React from "react";
 import {
   displayFieldLabelDescriptionError,
 } from "./shared/display";

@@ -1,5 +1,6 @@
 const { build } = require("esbuild");
 const { dependencies } = require("./package.json");
+const {nodeExternalsPlugin} = require("esbuild-node-externals");
 
 const entryFile = "src/index.ts";
 const shared = {
@@ -10,18 +11,12 @@ const shared = {
   logLevel: "info",
   minify: true,
   sourcemap: true,
+      plugins: [nodeExternalsPlugin()],
 };
 
 build({
   ...shared,
-  format: "esm",
-  outfile: "./dist/index.esm.js",
-  target: ["esnext", "node12.22.0"],
-});
-
-build({
-  ...shared,
   format: "cjs",
-  outfile: "./dist/index.cjs.js",
+  outfile: "./dist/index.js",
   target: ["esnext", "node12.22.0"],
 });

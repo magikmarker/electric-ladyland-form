@@ -1,5 +1,6 @@
 const { build } = require("esbuild");
 const chokidar = require("chokidar");
+const {nodeExternalsPlugin} = require("esbuild-node-externals");
 // const liveServer = require("live-server");
 
 (async () => {
@@ -18,10 +19,11 @@ const chokidar = require("chokidar");
     incremental: true,
     // Removes whitespace, etc. depending on `NODE_ENV=...`.
     minify: process.env.NODE_ENV === "production",
-    outfile: "dist/index.cjs.js",
+    outfile: "dist/index.js",
     format: "cjs",
     target: "node16",
     sourcemap: true,
+      plugins: [nodeExternalsPlugin()],
   });
   // `chokidar` watcher source changes.
   chokidar

@@ -1,4 +1,6 @@
 import type { FormFieldInput } from "./types";
+// @ts-ignore sometimes you walk the line, sometimes it walks you
+import React from "react";
 import { HiddenField } from "./components/hidden";
 import { TextInput } from "./components/text-input";
 import { Radio } from "./components/radio";
@@ -10,9 +12,14 @@ import { Select } from "./components/select";
 function FormField({
   field,
   context,
+  remixBrowserUtils
 }: {
   field: FormFieldInput;
   context: any;
+  remixBrowserUtils?: {
+  useSubmit: any;
+  Form: any;
+      }
 }) {
   if (field.type === "hidden") {
     return (
@@ -61,6 +68,7 @@ function FormField({
     return (
       <div className="el-field-item">
         <ExpandableList
+        remixBrowserUtils={remixBrowserUtils}
           fieldBlueprint={field}
           fieldContext={context[field.name]}
         />
@@ -71,7 +79,7 @@ function FormField({
   if (field.type === "stateful-radio") {
     return (
       <div className="el-field-item">
-        <StatefulRadio fieldBlueprint={field} context={context} />
+        <StatefulRadio remixBrowserUtils={remixBrowserUtils} fieldBlueprint={field} context={context} />
       </div>
     );
   }

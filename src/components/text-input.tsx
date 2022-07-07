@@ -1,3 +1,5 @@
+// @ts-ignore sometimes you walk the line, sometimes it walks you
+import React from "react";
 import { displayFieldLabelDescriptionError } from "./shared/display";
 import type { TextFieldBlueprint } from "../types";
 import { onChange, useFormField } from "./shared/logic";

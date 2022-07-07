@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import type { FormFieldInput, FormStage } from "./types";
 // @ts-expect-error sometimes you walk the line, sometimes it walks you
 import React from "react";
-import { Form } from "@remix-run/react";
 import { FormField } from "./form-field";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -12,21 +11,26 @@ export function ElectricLadylandForm({
   action,
   submitText = "Submit",
   reloadDocument = false,
+  remixBrowserUtils
 }: {
   context: any;
   formStructure: FormStage;
   action?: string;
   submitText?: string;
   reloadDocument?: boolean;
+  remixBrowserUtils: {
+    useSubmit: any;
+    Form: any;
+      }
 }) {
 //  console.log({ formStructure });
-
+  
   return (
     <div className="el-form-wrapper">
-      <FormWrapper reloadDocument={reloadDocument} action={action}>
+      <FormWrapper RemixFormFromApplication={remixBrowserUtils?.Form} reloadDocument={reloadDocument} action={action}>
         <HoneypotField />
         {formStructure.fields.map((field: FormFieldInput) => {
-          return <FormField field={field} context={context} key={field.name} />;
+          return <FormField remixBrowserUtils={remixBrowserUtils}  field={field} context={context} key={field.name} />;
         })}
         {context.dataHandlerErrorMessage && context.formStage === "end" ? (
           <>
@@ -70,7 +74,7 @@ export function ElectricLadylandForm({
       </FormWrapper>
       {(context.formStage === "middle" || context.formStage === "end") &&
       context.currentStep > 0 ? (
-        <Form method="post">
+        <FormWrapper RemixFormFromApplication={remixBrowserUtils?.Form} >
           <FormButton
             dataTest="back"
             className="el-form-button-back"
@@ -83,7 +87,7 @@ export function ElectricLadylandForm({
             </span>
             {context.backButtonText}
           </FormButton>
-        </Form>
+        </FormWrapper>
       ) : null}
     </div>
   );
@@ -93,22 +97,27 @@ function FormWrapper({
   children,
   action,
   reloadDocument = false,
+  RemixFormFromApplication
 }: {
   children: ReactNode;
   action?: string;
   reloadDocument?: boolean;
+  RemixFormFromApplication?: any;
 }) {
+if (!RemixFormFromApplication) {
+    return <form method="post" action={action}>{children}</form>;
+}
   if (reloadDocument) {
     return (
-      <Form reloadDocument action={action} method="post">
+      <RemixFormFromApplication reloadDocument action={action} method="post">
         {children}
-      </Form>
+      </RemixFormFromApplication>
     );
   }
   return (
-    <Form action={action} method="post">
+    <RemixFormFromApplication action={action} method="post">
       {children}
-    </Form>
+    </RemixFormFromApplication>
   );
 }
 

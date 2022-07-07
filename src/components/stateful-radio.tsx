@@ -1,4 +1,6 @@
 import { useState } from "react";
+// @ts-ignore sometimes you walk the line, sometimes it walks you
+import React from "react";
 import { FormField } from "../form-field";
 import type { StatefulRadioFieldBlueprint } from "../types";
 import {
@@ -11,9 +13,14 @@ import { createFieldLabel } from "./shared/logic";
 export function StatefulRadio({
   fieldBlueprint,
   context,
+  remixBrowserUtils,
 }: {
   fieldBlueprint: StatefulRadioFieldBlueprint;
   context: any;
+  remixBrowserUtils: {
+    Form: any;
+    useSubmit: any;
+      }
 }) {
   let selectedIndex = 0;
   fieldBlueprint.options.forEach((option, index) => {
@@ -87,7 +94,9 @@ export function StatefulRadio({
         if (nestedField) {
           return (
             <FormField
-              context={context}
+            remixBrowserUtils={remixBrowserUtils}
+
+         context={context}
               key={nestedField.name}
               field={nestedField}
             />

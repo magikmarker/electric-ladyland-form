@@ -1,7 +1,7 @@
 import type { ExpandableListBlueprint } from "../types";
-import { Form, useSubmit } from "@remix-run/react";
 import { useState, useEffect } from "react";
-
+// @ts-ignore sometimes you walk the line, sometimes it walks you
+import React from "react";
 import { DialogOverlay, DialogContent } from "@reach/dialog";
 import { FiPlusCircle } from "react-icons/fi";
 import { FormField } from "../form-field";
@@ -11,14 +11,20 @@ import { IoClose } from "react-icons/io5";
 export function ExpandableList({
   fieldBlueprint,
   fieldContext,
+  remixBrowserUtils
 }: {
   fieldBlueprint: ExpandableListBlueprint;
   fieldContext: {
     value: string[];
     errors: string[];
   };
+  remixBrowserUtils?: {
+    useSubmit: any;
+    Form: any;
+      }
 }) {
-  const submit = useSubmit();
+  console.log({remixBrowserUtils});
+  const submit = remixBrowserUtils.useSubmit();
   const [showDialog, setShowDialog] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(undefined);
   const [selectedAction, setSelectedAction] = useState("");
@@ -64,7 +70,7 @@ export function ExpandableList({
         {fieldBlueprint.addItemLabel}
       </button>
 
-      {listItems.length > 0 && (
+      {listItems?.length > 0 && (
         <>
           <div className="list-items-table-wrapper">
             <table>
@@ -234,7 +240,7 @@ export function ExpandableList({
                   >
                     Cancel
                   </button>
-                  <Form
+                  <remixBrowserUtils.Form
                     method="post"
                     onSubmitCapture={(event) => {
                       submit(event.currentTarget);
@@ -258,7 +264,7 @@ export function ExpandableList({
                     >
                       Confirm Delete
                     </button>
-                  </Form>
+                  </remixBrowserUtils.Form>
                 </div>
               </>
             ) : (
@@ -269,7 +275,7 @@ export function ExpandableList({
                     : fieldBlueprint.addItemLabel}
                 </div>
                 <span className="block h-8"></span>
-                <Form
+                <remixBrowserUtils.Form
                   reloadDocument
                   method="post"
                   onSubmitCapture={(event) => {
@@ -300,6 +306,7 @@ export function ExpandableList({
                   {listItemStructure.map((nestedField) => {
                     return (
                       <FormField
+                      remixBrowserUtils={remixBrowserUtils}
                         context={
                           typeof selectedIndex === "number"
                             ? fieldContext?.value[selectedIndex]
@@ -317,7 +324,7 @@ export function ExpandableList({
                   >
                     Confirm
                   </button>
-                </Form>
+                </remixBrowserUtils.Form>
               </>
             )}
           </div>

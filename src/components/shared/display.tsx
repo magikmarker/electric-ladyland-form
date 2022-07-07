@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+// @ts-ignore sometimes you walk the line, sometimes it walks you
+import React from "react";
 import type {
   CheckboxGroupBlueprint,
   ExpandableListBlueprint,
