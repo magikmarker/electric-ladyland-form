@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import type { SelectFieldBlueprint } from "../types";
 export declare function Select({ fieldBlueprint, fieldContext, }: {
     fieldContext: {

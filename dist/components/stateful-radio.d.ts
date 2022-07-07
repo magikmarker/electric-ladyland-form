@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import type { StatefulRadioFieldBlueprint } from "../types";
 export declare function StatefulRadio({ fieldBlueprint, context, remixBrowserUtils, }: {
     fieldBlueprint: StatefulRadioFieldBlueprint;

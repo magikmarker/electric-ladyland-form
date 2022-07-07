@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import type { FormFieldInput } from "./types";
 declare function FormField({ field, context, remixBrowserUtils }: {
     field: FormFieldInput;
