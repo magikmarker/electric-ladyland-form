@@ -9,7 +9,7 @@ export declare function onChange({ e, fieldValidation, setFieldErrors, fieldErro
         messages: string[];
     };
 }): void;
-export declare function useFormField({ fieldBlueprint, fieldContext, }: {
+export declare function useFormField({ fieldBlueprint, fieldContext, remixBrowserUtils, }: {
     fieldBlueprint: {
         name: string;
         type: string;
@@ -19,11 +19,15 @@ export declare function useFormField({ fieldBlueprint, fieldContext, }: {
         value?: string;
         errors: string[];
     };
+    remixBrowserUtils: {
+        useState: any;
+        useEffect: any;
+    };
 }): {
-    fieldErrors: string[];
-    fieldVisited: boolean;
-    setFieldErrors: import("react").Dispatch<import("react").SetStateAction<string[]>>;
-    setFieldVisited: import("react").Dispatch<import("react").SetStateAction<boolean>>;
+    fieldErrors: any;
+    fieldVisited: any;
+    setFieldErrors: any;
+    setFieldVisited: any;
     defaultValue: string;
 };
 //# sourceMappingURL=logic.d.ts.map

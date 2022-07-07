@@ -18,14 +18,14 @@ export function TextInput({
       useEffect: any;
   }
 }) {
-    console.log({ remixBrowserUtils });
+//    console.log({ remixBrowserUtils });
   let {
     defaultValue,
     fieldErrors,
     setFieldErrors,
     fieldVisited,
     setFieldVisited,
-  } = useFormField({ fieldBlueprint, fieldContext });
+  } = useFormField({ fieldBlueprint, fieldContext, remixBrowserUtils });
   //  console.log({ validation: fieldBlueprint.validation});
   //  console.log({ fieldErrors, fieldVisited });
   return (

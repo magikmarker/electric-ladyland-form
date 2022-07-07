@@ -33,7 +33,7 @@ export function StatefulRadio({
     }
   });
 
-  //   console.log({ context });
+//  console.log({ context,useState });
 
   const [selectedValue, setSelectedValue] = useState(selectedIndex);
 

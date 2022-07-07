@@ -1,5 +1,4 @@
 import type { FormEvent } from "react";
-import { useState } from "react";
 import { convertSingleQuotes } from "../../shared-logic";
 
 export function createFieldLabel(fieldName: string) {
@@ -56,6 +55,7 @@ export function onChange({
 export function useFormField({
   fieldBlueprint,
   fieldContext,
+  remixBrowserUtils,
 }: {
   fieldBlueprint: {
     name: string;
@@ -66,7 +66,12 @@ export function useFormField({
     value?: string;
     errors: string[];
   };
+  remixBrowserUtils: {
+useState: any;
+useEffect: any;
+      }
 }) {
+  let {useState } = remixBrowserUtils;
   // Determine if the field has errors or has been visited
   let errors: string[] = [];
   let visited = false;
