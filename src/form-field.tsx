@@ -19,6 +19,8 @@ function FormField({
   remixBrowserUtils?: {
   useSubmit: any;
   Form: any;
+  useState: any;
+  useEffect: any;
       }
 }) {
   if (field.type === "hidden") {
@@ -35,7 +37,7 @@ function FormField({
   ) {
     return (
       <div className="el-field-item">
-        <TextInput fieldBlueprint={field} fieldContext={context[field.name]} />
+        <TextInput remixBrowserUtils={remixBrowserUtils}  fieldBlueprint={field} fieldContext={context[field.name]} />
       </div>
     );
   }
@@ -51,7 +53,7 @@ function FormField({
   if (field.type === "select") {
     return (
         <div className="el-field-item">
-            <Select fieldBlueprint={field} fieldContext={context[field.name]} />
+            <Select remixBrowserUtils={remixBrowserUtils}  fieldBlueprint={field} fieldContext={context[field.name]} />
         </div>
     );
     }

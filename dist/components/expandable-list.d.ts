@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import type { ExpandableListBlueprint } from "../types";
 export declare function ExpandableList({ fieldBlueprint, fieldContext, remixBrowserUtils }: {
     fieldBlueprint: ExpandableListBlueprint;
@@ -9,6 +8,8 @@ export declare function ExpandableList({ fieldBlueprint, fieldContext, remixBrow
     remixBrowserUtils?: {
         useSubmit: any;
         Form: any;
+        useState: any;
+        useEffect: any;
     };
 }): JSX.Element;
 //# sourceMappingURL=expandable-list.d.ts.map

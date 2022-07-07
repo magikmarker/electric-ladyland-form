@@ -1,4 +1,3 @@
-import { useState } from "react";
 // @ts-ignore sometimes you walk the line, sometimes it walks you
 import React from "react";
 import { FormField } from "../form-field";
@@ -20,8 +19,11 @@ export function StatefulRadio({
   remixBrowserUtils: {
     Form: any;
     useSubmit: any;
+    useState: any;
+    useEffect: any;
       }
 }) {
+    let {useState} = remixBrowserUtils;
   let selectedIndex = 0;
   fieldBlueprint.options.forEach((option, index) => {
     let defaultValue =

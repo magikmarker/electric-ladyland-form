@@ -1,5 +1,4 @@
 import type { ExpandableListBlueprint } from "../types";
-import { useState, useEffect } from "react";
 // @ts-ignore sometimes you walk the line, sometimes it walks you
 import React from "react";
 import { DialogOverlay, DialogContent } from "@reach/dialog";
@@ -21,14 +20,16 @@ export function ExpandableList({
   remixBrowserUtils?: {
     useSubmit: any;
     Form: any;
+    useState: any;
+    useEffect: any;
       }
 }) {
-  console.log({remixBrowserUtils});
+    let { useState, useEffect } = remixBrowserUtils;
   const submit = remixBrowserUtils.useSubmit();
   const [showDialog, setShowDialog] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(undefined);
   const [selectedAction, setSelectedAction] = useState("");
-  const [listItems, setListItems] = useState<any[] | []>([]);
+  const [listItems, setListItems] = useState([]);
   const open = () => setShowDialog(true);
   const close = () => setShowDialog(false);
 

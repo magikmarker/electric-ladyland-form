@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import type { FormFieldInput } from "./types";
 declare function FormField({ field, context, remixBrowserUtils }: {
     field: FormFieldInput;
@@ -6,6 +5,8 @@ declare function FormField({ field, context, remixBrowserUtils }: {
     remixBrowserUtils?: {
         useSubmit: any;
         Form: any;
+        useState: any;
+        useEffect: any;
     };
 }): JSX.Element;
 export { FormField };

@@ -1,3 +1,6 @@
+// @ts-ignore react for reactaceans
+import React from "react";
+
 // Create a component that renders a hidden input
 export function HiddenField({
   fieldContext,

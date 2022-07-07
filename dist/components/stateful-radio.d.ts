@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import type { StatefulRadioFieldBlueprint } from "../types";
 export declare function StatefulRadio({ fieldBlueprint, context, remixBrowserUtils, }: {
     fieldBlueprint: StatefulRadioFieldBlueprint;
@@ -6,6 +5,8 @@ export declare function StatefulRadio({ fieldBlueprint, context, remixBrowserUti
     remixBrowserUtils: {
         Form: any;
         useSubmit: any;
+        useState: any;
+        useEffect: any;
     };
 }): JSX.Element;
 //# sourceMappingURL=stateful-radio.d.ts.map

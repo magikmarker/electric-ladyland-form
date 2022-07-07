@@ -8,11 +8,17 @@ export function TextInput({
   fieldBlueprint,
   fieldContext,
   className,
+  remixBrowserUtils,
 }: {
   fieldContext: { value?: string; errors: string[] };
   fieldBlueprint: TextFieldBlueprint;
   className?: string;
+  remixBrowserUtils: {
+      useState: any;
+      useEffect: any;
+  }
 }) {
+    console.log({ remixBrowserUtils });
   let {
     defaultValue,
     fieldErrors,

@@ -21,6 +21,8 @@ export function ElectricLadylandForm({
   remixBrowserUtils: {
     useSubmit: any;
     Form: any;
+    useState: any;
+    useEffect: any;
       }
 }) {
 //  console.log({ formStructure });

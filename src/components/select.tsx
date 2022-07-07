@@ -1,5 +1,4 @@
 import type { SelectFieldBlueprint } from "../types";
-import {useState} from "react";
 // @ts-ignore sometimes you walk the line, sometimes it walks you
 import React from "react";
 import {
@@ -11,11 +10,17 @@ import {FaChevronDown} from "react-icons/fa";
 export function Select({
   fieldBlueprint,
   fieldContext,
+  remixBrowserUtils 
 }: {
   fieldContext: { value?: string; errors: string[] };
   fieldBlueprint: SelectFieldBlueprint;
   className?: string;
+  remixBrowserUtils: {
+      useState: any;
+      useEffect: any;
+  }
 }) {
+    let {useState} = remixBrowserUtils;
     let defaultSelectOption = fieldBlueprint.initialValue;
 
     if (fieldContext?.value) {
