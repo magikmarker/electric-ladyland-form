@@ -1,6 +1,6 @@
 {
   "name": "electric-ladyland-form",
-  "version": "0.0.4-6",
+  "version": "0.0.4",
   "description": "Remix.run form library because form libraries are easy and there isn't enough of them.",
   "platform": "node",
   "main": "dist/index.js",
