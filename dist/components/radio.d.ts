@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import type { RadioFieldBlueprint } from "../types";
 export declare function Radio({ fieldBlueprint, fieldContext, }: {
     fieldContext: {

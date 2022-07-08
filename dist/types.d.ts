@@ -8,6 +8,7 @@ export declare type StatefulRadioFieldBlueprint = {
     options: string[];
     initialValue: string;
     dependentChildren: (FormFieldInput | undefined)[][];
+    tableFlex?: number;
     showOnMobileTable?: boolean;
 };
 declare type HiddenFieldBlueprint = {
@@ -66,9 +67,9 @@ export declare type ExpandableListBlueprint = {
     description?: string;
     listItemStructure: FormFieldInput[];
     initialValue: any[];
-    addItemLabel: string;
-    editItemLabel: string;
-    addOrEditItemModalLabel: string;
+    addItemLabel?: string;
+    editItemLabel?: string;
+    addOrEditItemModalLabel?: string;
 };
 export declare type TextFieldBlueprint = {
     testName?: string;
