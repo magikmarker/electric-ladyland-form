@@ -11,6 +11,7 @@ export type StatefulRadioFieldBlueprint = {
   dependentChildren: (FormFieldInput | undefined)[][];
   tableFlex?: number;
   showOnMobileTable?: boolean;
+  alignText?: AlignText;
 };
 
 type HiddenFieldBlueprint = {
