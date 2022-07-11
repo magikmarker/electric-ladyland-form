@@ -10,7 +10,7 @@ const validationStringPatterns = {
   numbers: "0-9",
   spaces: "\\s",
   dotsAndCommas: "\\.\\,",
-  punctuation: '"!\\-@#$%*()|;:,./?',
+  punctuation: "\"'!\\-@#$%*()|;:,./?",
   minLength5: "^.{5,}$",
 };
 
@@ -145,10 +145,9 @@ export function stringValidator({
   // when we try to reference it again inside of the next function.
   //
   // We need a clone with no references to the original object, that's
-  // what Object.assign gives 
+  // what Object.assign gives
   validationObject = Object.assign({}, validation[validationType]);
 
-  
   if (
     validationType === "sentences" ||
     validationType === "lettersOnly" ||
