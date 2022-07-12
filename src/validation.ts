@@ -43,7 +43,7 @@ export const validation = {
     browserPattern: `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}${validationStringPatterns.numbers}${validationStringPatterns.punctuation}]+$`,
     browserMessage: "letters, numbers, and special characters",
     patterns: [
-      `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}${validationStringPatterns.numbers}${validationStringPatterns.punctuation}]{1,}$`,
+      `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}${validationStringPatterns.numbers}${validationStringPatterns.punctuation}]{0,}$`,
     ],
     messages: ["Only letters, numbers, and basic punctuation allowed"],
   },
@@ -51,7 +51,7 @@ export const validation = {
     browserPattern: `^[${validationStringPatterns.letters}]+$`,
     browserMessage: "letters only",
     patterns: [
-      `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}]{1,}$`,
+      `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}]{0,}$`,
     ],
     messages: ["Only letters allowed"],
   },
@@ -60,7 +60,7 @@ export const validation = {
     browserPattern: `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}]+$`,
     browserMessage: "letters and spaces only",
     patterns: [
-      `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}]{1,}$`,
+      `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}]{0,}$`,
     ],
     messages: ["Only letters and spaces allowed"],
   },
@@ -69,7 +69,7 @@ export const validation = {
     browserPattern: `^[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}]+$`,
     browserMessage: "numbers only",
     patterns: [
-      `^[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}]{1,}$`,
+      `^[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}]{0,}$`,
     ],
     messages: ["Only numbers allowed"],
   },
@@ -78,7 +78,7 @@ export const validation = {
     browserPattern: `^[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}${validationStringPatterns.spaces}]+$`,
     browserMessage: "numbers and spaces only",
     patterns: [
-      `^[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}${validationStringPatterns.spaces}]{1,}$`,
+      `^[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}${validationStringPatterns.spaces}]{0,}$`,
     ],
     messages: ["Only numbers and spaces allowed"],
   },
