@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import type { TextFieldBlueprint } from "../types";
 export declare function TextInput({ fieldBlueprint, fieldContext, className, remixBrowserUtils, }: {
     fieldContext: {

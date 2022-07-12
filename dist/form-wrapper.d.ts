@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import type { FormStage } from "./types";
 export declare function ElectricLadylandForm({ context, formStructure, action, submitText, reloadDocument, remixBrowserUtils }: {
     context: any;

@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import type { ExpandableListBlueprint } from "../types";
 export declare function ExpandableList({ fieldBlueprint, fieldContext, remixBrowserUtils }: {
     fieldBlueprint: ExpandableListBlueprint;
