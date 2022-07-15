@@ -35,7 +35,6 @@ export async function formLoaderFunction({
   // If the context object doesn't have any length, we
   // know that it is empty and we need to seed it
   if (Object.keys(context).length < 1) {
-    console.log("empty context");
     context = seedContextWithInitialValues({
       formBlueprint,
     });
