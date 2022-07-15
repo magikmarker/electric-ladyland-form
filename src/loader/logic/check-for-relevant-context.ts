@@ -68,7 +68,11 @@ function checkContextForMismatch({
   }
 
   let contextFieldName = context[`${field.name}`];
-  console.log({ contextFieldName, type: typeof contextFieldName });
+  // If the context field name is not defined, we know we're on the wrong form
+  if (typeof contextFieldName === "undefined") {
+    console.log("Yo ho ho, who wouldn't go?");
+    return true;
+  }
   if (
     typeof contextFieldName?.value !== "string" &&
     typeof contextFieldName?.value !== "object"
