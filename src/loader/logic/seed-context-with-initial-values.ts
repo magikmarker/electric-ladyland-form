@@ -41,7 +41,6 @@ function addFieldToContext({
   } else if (field.type === "checkbox-group") {
     field.checkboxes.forEach((checkbox) => {
       if (checkbox.initialValue) {
-        console.log("Check yourself before you wreck yourself");
         context[`${checkbox.name}`] = {
           value: checkbox.initialValue || "",
           errors: [],

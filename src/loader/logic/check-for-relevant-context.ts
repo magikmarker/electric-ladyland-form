@@ -34,20 +34,13 @@ function checkForRelevantContext({
   // empty context object to re-initate the form
 
   for (const step of formBlueprint) {
-    console.log("Checking your context Captain Ryder, sir!");
     // @ts-ignore
     for (const field of step?.fields) {
       if (contextMismatch) {
-        console.log("Context mismatch detected, sir!");
-        //          console.log(
-        //          "The context you passed in does not match the structure of the form. Setting context to an empty object so that we can start the form again"
-        //      );
-
         return {};
       }
 
       contextMismatch = checkContextForMismatch({ field, context });
-      console.log({ contextMismatch });
     }
     if (contextMismatch) {
       console.log(
@@ -78,7 +71,6 @@ function checkContextForMismatch({
   let contextFieldName = context[`${field.name}`];
   // If the context field name is not defined, we know we're on the wrong form
   if (typeof contextFieldName === "undefined") {
-    console.log("Yo ho ho, who wouldn't go?");
     return true;
   }
   if (
@@ -103,9 +95,7 @@ function checkContextForMismatch({
   }
 
   if (field.type === "expandable-list") {
-    console.log({ listItemStructure: field.listItemStructure });
     field.listItemStructure.forEach((nestedField) => {
-      console.log({ nestedField });
       if (nestedField) {
         checkContextForMismatch({ field: nestedField, context });
       }
