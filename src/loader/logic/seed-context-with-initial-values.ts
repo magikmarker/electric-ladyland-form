@@ -41,7 +41,7 @@ function addFieldToContext({
   } else if (field.type === "checkbox-group") {
     field.checkboxes.forEach((checkbox) => {
       if (checkbox.initialValue) {
-          console.log("Check yourself before you wreck yourself");
+        console.log("Check yourself before you wreck yourself");
         context[`${checkbox.name}`] = {
           value: checkbox.initialValue || "",
           errors: [],
@@ -50,7 +50,13 @@ function addFieldToContext({
     });
   } else if (field.type === "expandable-list") {
     context[`${field.name}`] = {
-      value: field.initialValue || [],
+      value: field.listItemStructure.map((item) => {
+        return {
+          // @ts-expect-error typescript, lolz
+          value: item?.initialValue || "",
+          errors: [],
+        };
+      }),
       errors: [],
     };
   }
