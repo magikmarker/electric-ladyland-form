@@ -91,7 +91,9 @@ function checkContextForMismatch({
   }
 
   if (field.type === "expandable-list") {
+    console.log({ listItemStructure: field.listItemStructure });
     field.listItemStructure.forEach((nestedField) => {
+      console.log({ nestedField });
       if (nestedField) {
         checkContextForMismatch({ field: nestedField, context });
       }
