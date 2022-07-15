@@ -68,7 +68,7 @@ function checkContextForMismatch({
   }
 
   let contextFieldName = context[`${field.name}`];
-
+  console.log({ contextFieldName, type: typeof contextFieldName });
   if (
     typeof contextFieldName?.value !== "string" &&
     typeof contextFieldName?.value !== "object"
