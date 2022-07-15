@@ -47,6 +47,14 @@ function checkForRelevantContext({
       }
 
       contextMismatch = checkContextForMismatch({ field, context });
+      console.log({ contextMismatch });
+    }
+    if (contextMismatch) {
+      console.log(
+        "The context you passed in does not match the structure of the form. Setting context to an empty object so that we can start the form again"
+      );
+
+      return {};
     }
   }
 

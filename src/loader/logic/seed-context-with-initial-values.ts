@@ -50,13 +50,7 @@ function addFieldToContext({
     });
   } else if (field.type === "expandable-list") {
     context[`${field.name}`] = {
-      value: field.listItemStructure.map((item) => {
-        return {
-          // @ts-expect-error typescript, lolz
-          value: item?.initialValue || "",
-          errors: [],
-        };
-      }),
+      value: field.initialValue || [],
       errors: [],
     };
   }
