@@ -22,24 +22,24 @@ export function onChange({
   fieldErrors: string[];
   fieldValidation: { patterns: string[]; messages: string[] };
 }) {
-   //  console.log("hello from onChange");
-    console.log({ validation: fieldValidation, fieldErrors });
-    let fieldIsValid = true;
+  //  console.log("hello from onChange");
+  //    console.log({ validation: fieldValidation, fieldErrors });
+  let fieldIsValid = true;
   fieldValidation.patterns.forEach(async (pattern, index) => {
     let regexTestPattern = new RegExp(pattern, "gim");
- 
+
     let value = convertSingleQuotes(e?.currentTarget?.value);
-// console.log({ value });
+    // console.log({ value });
     let currentFieldIsValid = regexTestPattern.test(value);
     if (!currentFieldIsValid) fieldIsValid = false;
     if (currentFieldIsValid) {
-        // remove the current error message if it exists
-        let indexOfError = fieldErrors.indexOf(fieldValidation.messages[index]);
-        // console.log({currentFieldMessage: fieldValidation.messages[index]});
-        // console.log("indexOfError", indexOfError);
-        if (indexOfError > -1) {
-            fieldErrors.splice(indexOfError, 1);
-        }
+      // remove the current error message if it exists
+      let indexOfError = fieldErrors.indexOf(fieldValidation.messages[index]);
+      // console.log({currentFieldMessage: fieldValidation.messages[index]});
+      // console.log("indexOfError", indexOfError);
+      if (indexOfError > -1) {
+        fieldErrors.splice(indexOfError, 1);
+      }
     } else if (!fieldErrors.includes(fieldValidation.messages[index])) {
       // console.log("not valid");
 
@@ -67,11 +67,11 @@ export function useFormField({
     errors: string[];
   };
   remixBrowserUtils: {
-useState: any;
-useEffect: any;
-      }
+    useState: any;
+    useEffect: any;
+  };
 }) {
-  let {useState } = remixBrowserUtils;
+  let { useState } = remixBrowserUtils;
   // Determine if the field has errors or has been visited
   let errors: string[] = [];
   let visited = false;

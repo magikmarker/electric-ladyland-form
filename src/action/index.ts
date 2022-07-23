@@ -54,7 +54,7 @@ export async function formActionFunction({
     let { pathname } = new URL(request.url);
     // console.log({ pathname });
 
-    console.log("No context found in session, redirecting to start");
+    //    console.log("No context found in session, redirecting to start");
     return redirect(pathname, {
       headers: {
         "Set-Cookie": await destroySession(session),
