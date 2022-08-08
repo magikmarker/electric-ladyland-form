@@ -1,5 +1,5 @@
 import type { FormStage } from "./types";
-export declare function ElectricLadylandForm({ context, formStructure, action, submitText, reloadDocument, remixBrowserUtils }: {
+export declare function ElectricLadylandForm({ context, formStructure, action, submitText, reloadDocument, remixBrowserUtils, }: {
     context: any;
     formStructure: FormStage;
     action?: string;

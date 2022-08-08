@@ -30,8 +30,14 @@
   --input-field-bottom-margin: 32px;
   --input-field-bottom-margin-mm: 42px;
   --input-background: white;
-  --input-label-font: var(--font-display), sans-serif;
-  --input-body-font: var(--font-body), sans-serif;
+  --input-label-font: var(--font-display), ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --input-body-font: var(--font-body), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
   --input-border-radius: 4px;
   --input-font-size: 16px;
   --input-font-size-mm: 1.05em;
@@ -164,6 +170,8 @@
   position: relative;
   padding: 32px 16px;
   width: inherit;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 @media (min-width: 360px) {
@@ -173,7 +181,7 @@
   }
 }
 
-@media (min-width: 565px) {
+@media (min-width: 550px) {
   .el-form-wrapper {
     max-width: unset;
     margin: 0 auto;
@@ -182,6 +190,32 @@
 
 @media (min-width: 1100px) {
   .el-form-wrapper {
+  }
+}
+
+.el-form-stage-title {
+  width: 100%;
+  font-family: var(--input-label-font);
+  font-weight: 700;
+  font-size: 18px;
+  margin: 16px 0 18px;
+}
+
+@media (min-width: 360px) {
+  .el-form-stage-title {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 550px) {
+  .el-form-stage-title {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .el-form-stage-title {
+    font-size: 28px;
   }
 }
 
@@ -313,10 +347,51 @@
   box-shadow: var(--shadow-elevation-low);
 }
 
+@media (min-width: 550px) {
+  .el-text-input[data-tb-width="half"] {
+    width: 50%;
+  }
+
+  .el-text-input[data-tb-width="third"] {
+    width: 33%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .el-text-input[data-lt-width="half"] {
+    width: 50%;
+  }
+
+  .el-text-input[data-lt-width="third"] {
+    width: 33%;
+  }
+}
+
 .el-radio-or-checkbox-wrapper {
   display: flex;
   align-items: center;
   margin-bottom: 4px;
+  width: 100%;
+}
+
+@media (min-width: 550px) {
+  .el-radio-or-checkbox-wrapper[data-tb-width="half"] {
+    width: 50%;
+  }
+
+  .el-radio-or-checkbox-wrapper[data-tb-width="third"] {
+    width: 33%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .el-radio-or-checkbox-wrapper[data-lt-width="half"] {
+    width: 50%;
+  }
+
+  .el-radio-or-checkbox-wrapper[data-lt-width="third"] {
+    width: 33%;
+  }
 }
 
 .el-radio-or-checkbox-label {
@@ -324,6 +399,7 @@
   font-weight: 500;
   font-size: var(--input-font-size);
   margin-left: 8px;
+  width: 100%;
 }
 
 @media (min-width: 360px) {
@@ -346,6 +422,26 @@
   position: relative;
   width: max-content;
   margin-top: 12px;
+}
+
+@media (min-width: 550px) {
+  .el-select-wrapper[data-tb-width="half"] {
+    width: 50%;
+  }
+
+  .el-select-wrapper[data-tb-width="third"] {
+    width: 33%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .el-select-wrapper[data-lt-width="half"] {
+    width: 50%;
+  }
+
+  .el-select-wrapper[data-lt-width="third"] {
+    width: 33%;
+  }
 }
 
 .el-native-select {

@@ -11,7 +11,7 @@ export function ElectricLadylandForm({
   action,
   submitText = "Submit",
   reloadDocument = false,
-  remixBrowserUtils
+  remixBrowserUtils,
 }: {
   context: any;
   formStructure: FormStage;
@@ -23,16 +23,30 @@ export function ElectricLadylandForm({
     Form: any;
     useState: any;
     useEffect: any;
-      }
+  };
 }) {
-//  console.log({ formStructure });
-  
+  //  console.log({ formStructure });
+
   return (
     <div className="el-form-wrapper">
-      <FormWrapper RemixFormFromApplication={remixBrowserUtils?.Form} reloadDocument={reloadDocument} action={action}>
+      {formStructure?.stageTitle && (
+        <div className="form-stage-title">{formStructure.stageTitle}</div>
+      )}
+      <FormWrapper
+        RemixFormFromApplication={remixBrowserUtils?.Form}
+        reloadDocument={reloadDocument}
+        action={action}
+      >
         <HoneypotField />
         {formStructure.fields.map((field: FormFieldInput) => {
-          return <FormField remixBrowserUtils={remixBrowserUtils}  field={field} context={context} key={field.name} />;
+          return (
+            <FormField
+              remixBrowserUtils={remixBrowserUtils}
+              field={field}
+              context={context}
+              key={field.name}
+            />
+          );
         })}
         {context.dataHandlerErrorMessage && context.formStage === "end" ? (
           <>
@@ -76,7 +90,7 @@ export function ElectricLadylandForm({
       </FormWrapper>
       {(context.formStage === "middle" || context.formStage === "end") &&
       context.currentStep > 0 ? (
-        <FormWrapper RemixFormFromApplication={remixBrowserUtils?.Form} >
+        <FormWrapper RemixFormFromApplication={remixBrowserUtils?.Form}>
           <FormButton
             dataTest="back"
             className="el-form-button-back"
@@ -99,16 +113,20 @@ function FormWrapper({
   children,
   action,
   reloadDocument = false,
-  RemixFormFromApplication
+  RemixFormFromApplication,
 }: {
   children: ReactNode;
   action?: string;
   reloadDocument?: boolean;
   RemixFormFromApplication?: any;
 }) {
-if (!RemixFormFromApplication) {
-    return <form method="post" action={action}>{children}</form>;
-}
+  if (!RemixFormFromApplication) {
+    return (
+      <form method="post" action={action}>
+        {children}
+      </form>
+    );
+  }
   if (reloadDocument) {
     return (
       <RemixFormFromApplication reloadDocument action={action} method="post">

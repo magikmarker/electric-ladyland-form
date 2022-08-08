@@ -14,11 +14,11 @@ export function TextInput({
   fieldBlueprint: TextFieldBlueprint;
   className?: string;
   remixBrowserUtils: {
-      useState: any;
-      useEffect: any;
-  }
+    useState: any;
+    useEffect: any;
+  };
 }) {
-//    console.log({ remixBrowserUtils });
+  //    console.log({ remixBrowserUtils });
   let {
     defaultValue,
     fieldErrors,
@@ -60,6 +60,8 @@ export function TextInput({
           type={fieldBlueprint.type}
           autoCorrect="false"
           autoComplete="false"
+          data-tb-width={fieldBlueprint.tbWidth}
+          data-lt-width={fieldBlueprint.ltWidth}
         />
       ) : fieldBlueprint.type === "textarea" ? (
         <textarea
@@ -80,6 +82,8 @@ export function TextInput({
               fieldValidation: fieldBlueprint.validation,
             });
           }}
+          data-tb-width={fieldBlueprint.tbWidth}
+          data-lt-width={fieldBlueprint.ltWidth}
         />
       ) : null}
     </>

@@ -32,20 +32,24 @@ export type RadioFieldBlueprint = {
   showOnMobileTable?: boolean;
   tableFlex?: number;
   alignText?: AlignText;
+  tbWidth?: "full" | "half" | "third";
+  ltWidth?: "full" | "half" | "third";
 };
 
 export type SelectFieldBlueprint = {
-    type: "select";
-    testName?: string;
-    name: string;
-    description?: string;
-    label: string;
-    options: string[];
-    initialValue: string;
-    showOnMobileTable?: boolean;
-    tableFlex?: number;
-    alignText?: AlignText;
-}
+  type: "select";
+  testName?: string;
+  name: string;
+  description?: string;
+  label: string;
+  options: string[];
+  initialValue: string;
+  showOnMobileTable?: boolean;
+  tableFlex?: number;
+  alignText?: AlignText;
+  tbWidth?: "full" | "half" | "third";
+  ltWidth?: "full" | "half" | "third";
+};
 
 export type CheckboxBlueprint = {
   testName?: string;
@@ -66,6 +70,8 @@ export type CheckboxGroupBlueprint = {
   description?: string;
   checkboxes: CheckboxBlueprint[];
   showOnMobileTable?: boolean;
+  tbWidth?: "full" | "half" | "third";
+  ltWidth?: "full" | "half" | "third";
 };
 
 export type ExpandableListBlueprint = {
@@ -98,6 +104,8 @@ export type TextFieldBlueprint = {
   showOnMobileTable?: boolean;
   tableFlex?: number;
   alignText?: AlignText;
+  tbWidth?: "full" | "half" | "third";
+  ltWidth?: "full" | "half" | "third";
 };
 
 export type FormFieldInput =
@@ -108,8 +116,7 @@ export type FormFieldInput =
   | HiddenFieldBlueprint
   | CheckboxGroupBlueprint
   | ExpandableListBlueprint
-    | SelectFieldBlueprint;
-  
+  | SelectFieldBlueprint;
 
 export type FormStage = {
   stageTitle?: string;
