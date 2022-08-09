@@ -111,7 +111,7 @@ export function RadioOrCheckboxWrapper({
   // console.log({ className });
 
   return (
-    <>
+    <div>
       <div
         className={`el-radio-or-checkbox-wrapper expand-click-target${
           className ? " " + className : ""
@@ -119,7 +119,7 @@ export function RadioOrCheckboxWrapper({
       >
         {children}
       </div>
-    </>
+    </div>
   );
 }
 
