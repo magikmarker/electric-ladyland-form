@@ -9,9 +9,8 @@ const validationStringPatterns = {
   letters: "A-Za-z",
   numbers: "0-9",
   spaces: "\\s",
-  dotsAndCommas: ".,",
-  punctuation: "\"'!\\-@#$%*()|;:,./?",
-  minLength5: "^.{5,}$",
+  dotsAndCommas: "\\.,",
+  punctuation: "\"'!\\-@#$%*()|;:,\\./?",
 };
 
 export const validation = {
