@@ -1,5 +1,5 @@
 import type { ExpandableListBlueprint } from "../types";
-export declare function ExpandableList({ fieldBlueprint, fieldContext, remixBrowserUtils }: {
+export declare function ExpandableList({ fieldBlueprint, fieldContext, remixBrowserUtils, }: {
     fieldBlueprint: ExpandableListBlueprint;
     fieldContext: {
         value: string[];

@@ -10,7 +10,7 @@ import { IoClose } from "react-icons/io5";
 export function ExpandableList({
   fieldBlueprint,
   fieldContext,
-  remixBrowserUtils
+  remixBrowserUtils,
 }: {
   fieldBlueprint: ExpandableListBlueprint;
   fieldContext: {
@@ -22,9 +22,9 @@ export function ExpandableList({
     Form: any;
     useState: any;
     useEffect: any;
-      }
+  };
 }) {
-    let { useState, useEffect } = remixBrowserUtils;
+  let { useState, useEffect } = remixBrowserUtils;
   const submit = remixBrowserUtils.useSubmit();
   const [showDialog, setShowDialog] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(undefined);
@@ -198,8 +198,15 @@ export function ExpandableList({
           </div>
         </>
       )}
-      <DialogOverlay isOpen={showDialog} onDismiss={close}>
-        <DialogContent aria-label={fieldBlueprint.addOrEditItemModalLabel}>
+      <DialogOverlay
+        className="expandable-list-modal-wrapper"
+        isOpen={showDialog}
+        onDismiss={close}
+      >
+        <DialogContent
+          className="expandable-list-modal-content"
+          aria-label={fieldBlueprint.addOrEditItemModalLabel}
+        >
           <div className="modal-content-wrapper">
             <button
               className="close-modal-button expand-click-target"
@@ -307,7 +314,7 @@ export function ExpandableList({
                   {listItemStructure.map((nestedField) => {
                     return (
                       <FormField
-                      remixBrowserUtils={remixBrowserUtils}
+                        remixBrowserUtils={remixBrowserUtils}
                         context={
                           typeof selectedIndex === "number"
                             ? fieldContext?.value[selectedIndex]
