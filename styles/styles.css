@@ -44,6 +44,8 @@
   --input-vertical-padding: 12px;
   --input-horizontal-padding: 16px;
 
+  --button-icon-offset: 2px;
+
   --color-neutral-050: hsl(210 33% 96%);
   --color-neutral-100: hsl(203 14% 89%);
   --color-neutral-200: hsl(206 15% 80%);
@@ -288,12 +290,12 @@
 
 .el-form-left-icon {
   margin-right: 10px;
-  margin-bottom: -2px;
+  margin-bottom: var(--button-icon-offset);
 }
 
 .el-form-right-icon {
   margin-left: 10px;
-  margin-bottom: -2px;
+  margin-bottom: var(--button-icon-offset);
 }
 
 .el-form-button-forward {
