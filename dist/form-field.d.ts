@@ -1,5 +1,5 @@
 import type { FormFieldInput } from "./types";
-declare function FormField({ field, context, remixBrowserUtils }: {
+declare function FormField({ field, context, remixBrowserUtils, }: {
     field: FormFieldInput;
     context: any;
     remixBrowserUtils?: {

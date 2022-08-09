@@ -12,18 +12,18 @@ import { Select } from "./components/select";
 function FormField({
   field,
   context,
-  remixBrowserUtils
+  remixBrowserUtils,
 }: {
   field: FormFieldInput;
   context: any;
   remixBrowserUtils?: {
-  useSubmit: any;
-  Form: any;
-  useState: any;
-  useEffect: any;
-      }
+    useSubmit: any;
+    Form: any;
+    useState: any;
+    useEffect: any;
+  };
 }) {
-//    console.log({remixBrowserUtils});
+  //    console.log({remixBrowserUtils});
   if (field.type === "hidden") {
     return (
       <HiddenField fieldContext={context[field.name]} fieldBlueprint={field} />
@@ -37,15 +37,27 @@ function FormField({
     field.type === "email"
   ) {
     return (
-      <div className="el-field-item">
-        <TextInput remixBrowserUtils={remixBrowserUtils}  fieldBlueprint={field} fieldContext={context[field.name]} />
+      <div
+        className="el-field-item"
+        data-tb-width={field.tbWidth}
+        data-lt-width={field.ltWidth}
+      >
+        <TextInput
+          remixBrowserUtils={remixBrowserUtils}
+          fieldBlueprint={field}
+          fieldContext={context[field.name]}
+        />
       </div>
     );
   }
 
   if (field.type === "radio") {
     return (
-      <div className="el-field-item">
+      <div
+        className="el-field-item"
+        data-tb-width={field.tbWidth}
+        data-lt-width={field.ltWidth}
+      >
         <Radio fieldBlueprint={field} fieldContext={context[field.name]} />
       </div>
     );
@@ -53,15 +65,27 @@ function FormField({
 
   if (field.type === "select") {
     return (
-        <div className="el-field-item">
-            <Select remixBrowserUtils={remixBrowserUtils}  fieldBlueprint={field} fieldContext={context[field.name]} />
-        </div>
+      <div
+        className="el-field-item"
+        data-tb-width={field.tbWidth}
+        data-lt-width={field.ltWidth}
+      >
+        <Select
+          remixBrowserUtils={remixBrowserUtils}
+          fieldBlueprint={field}
+          fieldContext={context[field.name]}
+        />
+      </div>
     );
-    }
+  }
 
   if (field.type === "checkbox-group") {
     return (
-      <div className="el-field-item">
+      <div
+        className="el-field-item"
+        data-tb-width={field.tbWidth}
+        data-lt-width={field.ltWidth}
+      >
         <CheckboxGroup fieldBlueprint={field} context={context} />
       </div>
     );
@@ -71,7 +95,7 @@ function FormField({
     return (
       <div className="el-field-item">
         <ExpandableList
-        remixBrowserUtils={remixBrowserUtils}
+          remixBrowserUtils={remixBrowserUtils}
           fieldBlueprint={field}
           fieldContext={context[field.name]}
         />
@@ -82,7 +106,11 @@ function FormField({
   if (field.type === "stateful-radio") {
     return (
       <div className="el-field-item">
-        <StatefulRadio remixBrowserUtils={remixBrowserUtils} fieldBlueprint={field} context={context} />
+        <StatefulRadio
+          remixBrowserUtils={remixBrowserUtils}
+          fieldBlueprint={field}
+          context={context}
+        />
       </div>
     );
   }

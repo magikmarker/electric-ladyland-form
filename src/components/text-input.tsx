@@ -29,7 +29,11 @@ export function TextInput({
   //  console.log({ validation: fieldBlueprint.validation});
   //  console.log({ fieldErrors, fieldVisited });
   return (
-    <>
+    <div
+      className="el-field-container"
+      data-tb-width={fieldBlueprint.tbWidth}
+      data-lt-width={fieldBlueprint.ltWidth}
+    >
       {displayFieldLabelDescriptionError({
         fieldBlueprint,
         fieldErrors,
@@ -60,8 +64,6 @@ export function TextInput({
           type={fieldBlueprint.type}
           autoCorrect="false"
           autoComplete="false"
-          data-tb-width={fieldBlueprint.tbWidth}
-          data-lt-width={fieldBlueprint.ltWidth}
         />
       ) : fieldBlueprint.type === "textarea" ? (
         <textarea
@@ -82,10 +84,8 @@ export function TextInput({
               fieldValidation: fieldBlueprint.validation,
             });
           }}
-          data-tb-width={fieldBlueprint.tbWidth}
-          data-lt-width={fieldBlueprint.ltWidth}
         />
       ) : null}
-    </>
+    </div>
   );
 }

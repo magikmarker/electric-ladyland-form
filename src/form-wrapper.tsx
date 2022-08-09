@@ -29,14 +29,14 @@ export function ElectricLadylandForm({
 
   return (
     <div className="el-form-wrapper">
-      {formStructure?.stageTitle && (
-        <div className="form-stage-title">{formStructure.stageTitle}</div>
-      )}
       <FormWrapper
         RemixFormFromApplication={remixBrowserUtils?.Form}
         reloadDocument={reloadDocument}
         action={action}
       >
+        {formStructure?.stageTitle && (
+          <div className="el-form-stage-title">{formStructure.stageTitle}</div>
+        )}
         <HoneypotField />
         {formStructure.fields.map((field: FormFieldInput) => {
           return (
@@ -122,7 +122,7 @@ function FormWrapper({
 }) {
   if (!RemixFormFromApplication) {
     return (
-      <form method="post" action={action}>
+      <form className="el-form-element" method="post" action={action}>
         {children}
       </form>
     );
