@@ -405,7 +405,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-  width: 100%;
+  width: fit-content;
 }
 
 .el-radio-or-checkbox-label {
