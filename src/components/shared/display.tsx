@@ -113,7 +113,7 @@ export function RadioOrCheckboxWrapper({
   return (
     <>
       <div
-        className={`el-radio-or-checkbox-wrapper${
+        className={`el-radio-or-checkbox-wrapper expand-click-target${
           className ? " " + className : ""
         }`}
       >
@@ -135,7 +135,7 @@ export function RadioOrCheckboxLabel({
   return (
     <label
       htmlFor={htmlFor}
-      className={`el-radio-or-checkbox-label${
+      className={`el-radio-or-checkbox-label expand-click-target${
         className ? " " + className : ""
       }`}
     >
