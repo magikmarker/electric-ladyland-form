@@ -130,13 +130,13 @@ function FormWrapper({
   if (reloadDocument) {
     return (
       <RemixFormFromApplication reloadDocument action={action} method="post">
-        <div className="el-form-elemen">{children}</div>
+        <div className="el-form-element">{children}</div>
       </RemixFormFromApplication>
     );
   }
   return (
     <RemixFormFromApplication action={action} method="post">
-      <div className="el-form-elemen">{children}</div>
+      <div className="el-form-element">{children}</div>
     </RemixFormFromApplication>
   );
 }
