@@ -220,15 +220,16 @@
 .el-form-stage-title {
   width: 100%;
   font-family: var(--input-label-font);
-  font-weight: 500;
-  font-size: 18px;
-  margin-bottom: 24px;
+  color: var(--color-neutral-700);
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 32px;
 }
 
 @media (min-width: 360px) {
   .el-form-stage-title {
-    font-size: 20px;
-    margin-bottom: 28px;
+    font-size: 1.25em;
+    margin-bottom: 36px;
   }
 }
 
