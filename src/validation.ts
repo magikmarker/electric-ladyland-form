@@ -1,8 +1,8 @@
 export const validationPatterns = {
-  phoneNumber: "^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$",
-  email: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$",
-  postalCode: "^(?!.*[DFIOQU])[A-VXY][0-9][A-Z]\\s?[0-9][A-Z][0-9]$",
-  password: "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$.%^&*])(?=.{8,}).*$",
+  phoneNumber: "\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})",
+  email: "[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*",
+  postalCode: "(?!.*[DFIOQU])[A-VXY][0-9][A-Z]\\s?[0-9][A-Z][0-9]",
+  password: "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$.%^&*])(?=.{8,}).*",
 };
 
 const validationStringPatterns = {
@@ -17,29 +17,29 @@ export const validation = {
   phone: {
     browserPattern: validationPatterns.phoneNumber,
     browserMessage: "valid phone number with area code",
-    patterns: [validationPatterns.phoneNumber],
+    patterns: [`^${validationPatterns.phoneNumber}$`],
     messages: ["Provide a valid phone number with area code"],
   },
   email: {
     browserPattern: validationPatterns.email,
     browserMessage: "valid email address",
-    patterns: [validationPatterns.email],
+    patterns: [`^${validationPatterns.email}$`],
     messages: ["Please provide a valid email address"],
   },
   postalCode: {
     browserPattern: validationPatterns.postalCode,
     browserMessage: "valid postal code",
-    patterns: [validationPatterns.postalCode],
+    patterns: [`^${validationPatterns.postalCode}$`],
     messages: ["Please provide valid postal code"],
   },
   password: {
     browserPattern: validationPatterns.password,
     browserMessage: "letters, numbers, and special characters",
-    patterns: [validationPatterns.password],
+    patterns: [`^${validationPatterns.password}$`],
     messages: ["Letters, numbers, and special characters are required"],
   },
   sentences: {
-    browserPattern: `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}${validationStringPatterns.numbers}${validationStringPatterns.punctuation}]+$`,
+    browserPattern: `[${validationStringPatterns.letters}${validationStringPatterns.spaces}${validationStringPatterns.numbers}${validationStringPatterns.punctuation}]+`,
     browserMessage: "letters, numbers, and special characters",
     patterns: [
       `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}${validationStringPatterns.numbers}${validationStringPatterns.punctuation}]{0,}$`,
@@ -47,7 +47,7 @@ export const validation = {
     messages: ["Only letters, numbers, and basic punctuation allowed"],
   },
   lettersOnly: {
-    browserPattern: `^[${validationStringPatterns.letters}]+$`,
+    browserPattern: `[${validationStringPatterns.letters}]+`,
     browserMessage: "letters only",
     patterns: [
       `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}]{0,}$`,
@@ -56,7 +56,7 @@ export const validation = {
   },
 
   lettersAndSpaces: {
-    browserPattern: `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}]+$`,
+    browserPattern: `[${validationStringPatterns.letters}${validationStringPatterns.spaces}]+`,
     browserMessage: "letters and spaces only",
     patterns: [
       `^[${validationStringPatterns.letters}${validationStringPatterns.spaces}]{0,}$`,
@@ -65,7 +65,7 @@ export const validation = {
   },
 
   numbersOnly: {
-    browserPattern: `^[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}]+$`,
+    browserPattern: `[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}]+`,
     browserMessage: "numbers only",
     patterns: [
       `^[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}]{0,}$`,
@@ -74,7 +74,7 @@ export const validation = {
   },
 
   numbersAndSpaces: {
-    browserPattern: `^[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}${validationStringPatterns.spaces}]+$`,
+    browserPattern: `[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}${validationStringPatterns.spaces}]+`,
     browserMessage: "numbers and spaces only",
     patterns: [
       `^[${validationStringPatterns.numbers}${validationStringPatterns.dotsAndCommas}${validationStringPatterns.spaces}]{0,}$`,
