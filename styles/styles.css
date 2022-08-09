@@ -41,62 +41,65 @@
   --input-border-radius: 4px;
   --input-font-size: 16px;
   --input-font-size-mm: 1.05em;
+  --input-vertical-padding: 12px;
+  --input-horizontal-padding: 16px;
 
-  --color-neutral-05: hsl(210 33% 96%);
-  --color-neutral-1: hsl(203 14% 89%);
-  --color-neutral-2: hsl(206 15% 80%);
-  --color-neutral-3: hsl(209 12% 61%);
-  --color-neutral-4: hsl(208 11% 48%);
-  --color-neutral-5: hsl(209 14% 39%);
-  --color-neutral-6: hsl(208 15% 33%);
-  --color-neutral-7: hsl(206 19% 26%);
-  --color-neutral-8: hsl(207 20% 21%);
-  --color-neutral-9: hsl(206 22% 14%);
+  --color-neutral-050: hsl(210 33% 96%);
+  --color-neutral-100: hsl(203 14% 89%);
+  --color-neutral-200: hsl(206 15% 80%);
+  --color-neutral-300: hsl(209 12% 61%);
+  --color-neutral-400: hsl(208 11% 48%);
+  --color-neutral-500: hsl(209 14% 39%);
+  --color-neutral-600: hsl(208 15% 33%);
+  --color-neutral-700: hsl(206 19% 26%);
+  --color-neutral-800: hsl(207 20% 21%);
+  --color-neutral-900: hsl(206 22% 14%);
 
-  --color-info-05: hsl(204 79% 91%);
-  --color-info-1: hsl(203 93% 82%);
-  --color-info-2: hsl(203 80% 68%);
-  --color-info-3: hsl(203 72% 58%);
-  --color-info-4: hsl(203 72% 47%);
-  --color-info-5: hsl(202 100% 36%);
-  --color-info-6: hsl(203 100% 32%);
-  --color-info-7: hsl(204 100% 28%);
-  --color-info-8: hsl(204 100% 25%);
-  --color-info-9: hsl(205 100% 19%);
+  --color-info-050: hsl(204 79% 91%);
+  --color-info-100: hsl(203 93% 82%);
+  --color-info-200: hsl(203 80% 68%);
+  --color-info-300: hsl(203 72% 58%);
+  --color-info-400: hsl(203 72% 47%);
+  --color-info-500: hsl(202 100% 36%);
+  --color-info-600: hsl(203 100% 32%);
+  --color-info-700: hsl(204 100% 28%);
+  --color-info-800: hsl(204 100% 25%);
+  --color-info-900: hsl(2050 100% 19%);
 
-  --color-success-05: hsl(158 67% 95%);
-  --color-success-1: hsl(157 78% 84%);
-  --color-success-2: hsl(159 74% 69%);
-  --color-success-3: hsl(161 60% 54%);
-  --color-success-4: hsl(165 87% 38%);
-  --color-success-5: hsl(165 100% 32%);
-  --color-success-6: hsl(166 100% 27%);
-  --color-success-7: hsl(167 100% 22%);
-  --color-success-8: hsl(169 100% 19%);
-  --color-success-9: hsl(169 100% 13%);
+  --color-success-050: hsl(158 67% 95%);
+  --color-success-100: hsl(157 78% 84%);
+  --color-success-200: hsl(159 74% 69%);
+  --color-success-300: hsl(161 60% 54%);
+  --color-success-400: hsl(165 87% 38%);
+  --color-success-500: hsl(165 100% 32%);
+  --color-success-600: hsl(166 100% 27%);
+  --color-success-700: hsl(167 100% 22%);
+  --color-success-800: hsl(169 100% 19%);
+  --color-success-900: hsl(169 100% 13%);
 
-  --color-primary-05: hsl(192 94% 93%);
-  --color-primary-1: hsl(193 96% 81%);
-  --color-primary-2: hsl(193 94% 69%);
-  --color-primary-3: hsl(194 91% 60%);
-  --color-primary-4: hsl(194 100% 47%);
-  --color-primary-5: hsl(197 100% 45%);
-  --color-primary-6: hsl(200 100% 40%);
-  --color-primary-7: hsl(201 100% 35%);
-  --color-primary-8: hsl(202 100% 29%);
-  --color-primary-9: hsl(204 100% 24%);
+  --color-primary-050: hsl(192 94% 93%);
+  --color-primary-100: hsl(193 96% 81%);
+  --color-primary-200: hsl(193 94% 69%);
+  --color-primary-300: hsl(194 91% 60%);
+  --color-primary-400: hsl(194 100% 47%);
+  --color-primary-500: hsl(197 100% 45%);
+  --color-primary-600: hsl(200 100% 40%);
+  --color-primary-700: hsl(201 100% 35%);
+  --color-primary-800: hsl(202 100% 29%);
+  --color-primary-900: hsl(204 100% 24%);
 
-  --color-danger-05: hsl(0 100% 94%);
-  --color-danger-1: hsl(359 100% 85%);
-  --color-danger-2: hsl(359 100% 78%);
-  --color-danger-3: hsl(359 100% 69%);
-  --color-danger-4: hsl(359 93% 62%);
-  --color-danger-5: hsl(356 81% 54%);
-  --color-danger-6: hsl(354 83% 45%);
-  --color-danger-7: hsl(353 85% 36%);
-  --color-danger-8: hsl(351 86% 28%);
-  --color-danger-9: hsl(349 84% 19%);
+  --color-danger-050: hsl(0 100% 94%);
+  --color-danger-100: hsl(359 100% 85%);
+  --color-danger-200: hsl(359 100% 78%);
+  --color-danger-300: hsl(359 100% 69%);
+  --color-danger-400: hsl(359 93% 62%);
+  --color-danger-500: hsl(356 81% 54%);
+  --color-danger-600: hsl(354 83% 45%);
+  --color-danger-700: hsl(353 85% 36%);
+  --color-danger-800: hsl(351 86% 28%);
+  --color-danger-900: hsl(349 84% 19%);
 
+  --input-border-color: var(--color-neutral-300);
   --click-target: -8px;
 
   --shadow-color: 92deg 17% 55%;
@@ -188,6 +191,13 @@
   }
 }
 
+.el-form-element {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .el-field-container {
   width: 100%;
 }
@@ -195,7 +205,7 @@
 .el-form-stage-title {
   width: 100%;
   font-family: var(--input-label-font);
-  font-weight: 700;
+  font-weight: 500;
   font-size: 18px;
   margin-bottom: 24px;
 }
@@ -228,8 +238,7 @@
   padding: 14px;
   font-weight: 600;
   color: white;
-  transform: scale(1);
-  transition: transform 400ms;
+  transition: background-color 400ms;
   box-shadow: var(--shadow-elevation-low);
 }
 
@@ -246,7 +255,7 @@
 
 .el-form-add-item-button {
   font-size: 16px;
-  background-color: var(--color-success-05);
+  background-color: var(--color-success-050);
   color: var(--color-success-9);
   font-weight: 700;
   margin: 22px 0;
@@ -257,7 +266,7 @@
 
 .el-form-button-back {
   position: absolute;
-  background-color: var(--color-neutral-6);
+  background-color: var(--color-neutral-600);
   bottom: 32px;
 }
 
@@ -273,24 +282,36 @@
 
 .el-form-button-forward {
   margin-left: auto;
-  background-color: var(--color-primary-5);
+  background-color: var(--color-primary-500);
 }
 
 .el-form-button-neutral {
-  background-color: var(--color-neutral-05);
+  background-color: var(--color-neutral-050);
   color: var(--color-neutral-9);
 }
 
 .el-form-button-danger {
-  background-color: var(--color-danger-05);
+  background-color: var(--color-danger-050);
   color: var(--color-danger-9);
   position: absolute;
   right: 0;
   bottom: 0;
 }
 @media (hover: hover) and (pointer: fine) {
-  .el-form-button:hover {
-    transform: scale(1.05);
+  .el-form-button-forward:hover {
+    background-color: var(--color-primary-600);
+  }
+
+  .el-form-button-back:hover {
+    background-color: var(--color-neutral-700);
+  }
+
+  .el-form-button-danger:hover {
+    background-color: var(--color-danger-100);
+  }
+
+  .el-form-button-neutral:hover {
+    background-color: var(--color-neutral-100);
   }
 }
 
@@ -328,7 +349,7 @@
 .el-form-field-label {
   display: block;
   font-family: var(--input-label-font);
-  font-weight: 700;
+  font-weight: 500;
   font-size: 18px;
   color: var(--color-neutral-6);
   margin-bottom: 8px;
@@ -357,7 +378,7 @@
   font-size: var(--input-font-size);
   font-family: var(--input-body-font);
   border-radius: var(--input-border-radius);
-  padding: 4px 6px;
+  padding: var(--input-vertical-padding) var(--input-horizontal-padding);
   width: 100%;
   width: -moz-available;
   width: -webkit-fill-available;
@@ -388,11 +409,10 @@
   }
 }
 
-@media (min-width: 565px) {
+@media (min-width: 550px) {
   .el-form-field-label,
   .el-radio-or-checkbox-label,
   .el-text-input {
-    font-size: 1.2em;
   }
 }
 
