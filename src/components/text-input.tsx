@@ -18,7 +18,6 @@ export function TextInput({
     useEffect: any;
   };
 }) {
-  //    console.log({ remixBrowserUtils });
   let {
     defaultValue,
     fieldErrors,
@@ -29,11 +28,7 @@ export function TextInput({
   //  console.log({ validation: fieldBlueprint.validation});
   //  console.log({ fieldErrors, fieldVisited });
   return (
-    <div
-      className="el-field-container"
-      data-tb-width={fieldBlueprint.tbWidth}
-      data-lt-width={fieldBlueprint.ltWidth}
-    >
+    <>
       {displayFieldLabelDescriptionError({
         fieldBlueprint,
         fieldErrors,
@@ -86,6 +81,6 @@ export function TextInput({
           }}
         />
       ) : null}
-    </div>
+    </>
   );
 }
