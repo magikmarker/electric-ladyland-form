@@ -404,7 +404,7 @@
 .el-radio-or-checkbox-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   width: 100%;
 }
 

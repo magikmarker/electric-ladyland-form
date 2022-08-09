@@ -105,13 +105,11 @@ function FormField({
 
   if (field.type === "stateful-radio") {
     return (
-      <div className="el-field-item">
-        <StatefulRadio
-          remixBrowserUtils={remixBrowserUtils}
-          fieldBlueprint={field}
-          context={context}
-        />
-      </div>
+      <StatefulRadio
+        remixBrowserUtils={remixBrowserUtils}
+        fieldBlueprint={field}
+        context={context}
+      />
     );
   }
   return null;
