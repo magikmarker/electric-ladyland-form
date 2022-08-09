@@ -307,21 +307,21 @@
 
 @media (min-width: 550px) {
   .el-field-item[data-tb-width="half"] {
-    width: 50%;
+    width: 47.5%;
   }
 
   .el-field-item[data-tb-width="third"] {
-    width: 33%;
+    width: 30.5%;
   }
 }
 
 @media (min-width: 1100px) {
   .el-field-item[data-lt-width="half"] {
-    width: 50%;
+    width: 47.5%;
   }
 
   .el-field-item[data-lt-width="third"] {
-    width: 33%;
+    width: 30.5%;
   }
 }
 
